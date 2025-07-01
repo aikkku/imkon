@@ -1,0 +1,23 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#667eea"/>
+      <stop offset="1" stop-color="#764ba2"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="256" height="256" rx="64" fill="url(#bgGradient)"/>
+  <!-- Face (head) -->
+  <circle cx="128" cy="148" r="56" fill="#fff"/>
+  <!-- Graduation Cap: diamond top and headband -->
+  <polygon points="128,70 72,100 128,120 184,100" fill="#fff"/>
+  <rect x="104" y="112" width="48" height="14" rx="6" fill="#fff"/>
+  <!-- Tassel -->
+  <line x1="128" y1="120" x2="128" y2="140" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="128" cy="140" r="5" fill="#fff"/>
+  <!-- Eyes -->
+  <circle cx="116" cy="156" r="5" fill="#667eea"/>
+  <circle cx="140" cy="156" r="5" fill="#667eea"/>
+  <!-- Smile -->
+  <path d="M122 172 Q128 182 134 172" stroke="#667eea" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg> 
