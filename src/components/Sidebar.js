@@ -22,7 +22,6 @@ const Sidebar = ({ activeButton, onButtonClick }) => {
         <div className="header-content">
           <div className="company-name">
             <span className="company-text">IMKON</span>
-            <span className="company-subtitle">University Applications</span>
           </div>
           <button 
             className={`aibek-button ${activeButton === 1 ? 'active' : ''}`}

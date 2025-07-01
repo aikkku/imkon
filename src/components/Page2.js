@@ -5,8 +5,8 @@ const Page2 = ({ activeButton }) => {
   return (
     <div className="page-2">
       <div className="page-header">
-        <h2>Hello World</h2>
-        <p>Welcome to IMKON University Applications</p>
+        <h2>Welcome to IMKON</h2>
+        <p>Your personal study abroad assistant</p>
       </div>
       
       <div className="page-content">
