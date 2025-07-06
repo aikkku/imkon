@@ -8,6 +8,9 @@ from typing import List
 from config import Config
 from models import ChatRequest, ChatResponse, ChatMessage, ErrorResponse
 from openai_service import OpenAIService
+from database import engine
+from user_models import User
+from auth_router import router as auth_router
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -30,6 +33,14 @@ openai_service = OpenAIService()
 
 # In-memory storage for conversations (replace with database in production)
 conversations = {}
+
+# Include authentication router
+app.include_router(auth_router)
+
+@app.on_event("startup")
+async def startup_event():
+    """Create database tables on startup"""
+    User.metadata.create_all(bind=engine)
 
 @app.get("/")
 async def root():

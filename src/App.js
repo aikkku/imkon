@@ -11,11 +11,15 @@ import SubPage34 from './components/SubPage34';
 import SubPage35 from './components/SubPage35';
 import SubPage51 from './components/SubPage51';
 import AgentSelector from './components/AgentSelector';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   const [activeButton, setActiveButton] = useState(2);
   const [activeAgent, setActiveAgent] = useState(1);
   const [showAgentSelector, setShowAgentSelector] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
 
   // Update page title based on active button
   useEffect(() => {
@@ -67,6 +71,24 @@ function App() {
 
   const toggleAgentSelector = () => {
     setShowAgentSelector(!showAgentSelector);
+  };
+
+  const handleLogin = (response) => {
+    console.log('Login successful:', response);
+    setIsLoggedIn(true);
+  };
+
+  const handleSignup = (response) => {
+    console.log('Signup successful:', response);
+    setIsLoggedIn(true);
+  };
+
+  const switchToSignup = () => {
+    setShowSignup(true);
+  };
+
+  const switchToLogin = () => {
+    setShowSignup(false);
   };
 
   const renderRightContent = () => {
@@ -198,13 +220,21 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
-        <Sidebar 
-          activeButton={activeButton} 
-          onButtonClick={handleButtonClick} 
-        />
-        {renderRightContent()}
-      </div>
+      {!isLoggedIn ? (
+        showSignup ? (
+          <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+        ) : (
+          <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+        )
+      ) : (
+        <div className="container">
+          <Sidebar 
+            activeButton={activeButton} 
+            onButtonClick={handleButtonClick} 
+          />
+          {renderRightContent()}
+        </div>
+      )}
     </div>
   );
 }

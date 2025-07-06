@@ -36,6 +36,11 @@ ENV/
 backend/venv/
 backend/.env
 
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
 # IDE
 .vscode/
 .idea/
