@@ -19,7 +19,7 @@ const SubPage30 = () => {
         <div className="content-section">
           <h3>🔍 Step 1: Research & Shortlist Universities</h3>
           <p>
-            Begin by identifying programs that align with your academic interests and career goals. Research universities thoroughly, checking if they are SEVP-certified for international students, as only these institutions can enroll F-1 or M-1 visa holders. Consider factors such as location, program length, campus culture, and institutional accreditation. Review academic requirements, language proficiency standards, and available support services for international students. Create a shortlist of 5-8 universities that best match your criteria and budget.
+            Begin by identifying programs that align with your academic interests and career goals. Research universities thoroughly, checking if they are <a href="https://studyinthestates.dhs.gov/schools/search" target="_blank" rel="noopener noreferrer" className="link-highlight">SEVP-certified</a> for international students, as only these institutions can enroll F-1 or M-1 visa holders. Consider factors such as location, program length, campus culture, and institutional accreditation. Review academic requirements, language proficiency standards, and available support services for international students. Create a shortlist of 5-8 universities that best match your criteria and budget.
           </p>
           <div className="tip-box">💡 <strong>Tip:</strong> Use official university websites and virtual tours to get a feel for campus life and resources.</div>
         </div>
@@ -33,7 +33,15 @@ const SubPage30 = () => {
         </div>
         <div className="section-divider" />
         <div className="content-section">
-          <h3>💰 Step 3: Financial Planning</h3>
+          <h3>🌐 Step 3: Where to Apply</h3>
+          <p>
+            Most US universities accept applications through multiple platforms. The <a href="https://www.commonapp.org/" target="_blank" rel="noopener noreferrer" className="link-highlight">Common Application</a> is the most popular platform, used by over 1,000 colleges and universities. Some universities also accept applications through the <a href="https://www.universalcollegeapp.com/" target="_blank" rel="noopener noreferrer" className="link-highlight">Universal College Application</a> or their own institutional portals. For graduate programs, many universities use the <a href="https://www.liaisonedu.com/" target="_blank" rel="noopener noreferrer" className="link-highlight">Liaison</a> platform. Always check each university's website to confirm which application method they prefer and any additional requirements.
+          </p>
+          <div className="tip-box">💻 <strong>Tip:</strong> Create accounts on multiple platforms early to familiarize yourself with their interfaces.</div>
+        </div>
+        <div className="section-divider" />
+        <div className="content-section">
+          <h3>💰 Step 4: Financial Planning</h3>
           <p>
             Understand the complete cost of studying in the USA, including tuition, fees, housing, meals, transportation, and personal expenses. Research scholarships and financial aid opportunities specifically designed for international students, as federal need-based aid is typically not available to non-citizens. Many universities offer merit-based scholarships, and some provide on-campus employment opportunities for eligible F-1 and J-1 students. Contact the university's financial services office to explore all available funding options and create a comprehensive budget plan.
           </p>
@@ -41,15 +49,15 @@ const SubPage30 = () => {
         </div>
         <div className="section-divider" />
         <div className="content-section">
-          <h3>🛂 Step 4: Apply for a Student Visa</h3>
+          <h3>🛂 Step 5: Apply for a Student Visa</h3>
           <p>
-            Once you receive admission and pay your deposit, the university will issue your Form I-20. Pay the required I-901 SEVIS fee and complete the DS-160 visa application online. Schedule your visa interview at the nearest US embassy or consulate, preparing all necessary documents including your passport, I-20 form, financial evidence, and academic records. Attend the interview with confidence, clearly explaining your study plans and demonstrating strong ties to your home country. Pay the visa issuance fee upon approval and wait for your passport with the visa to be returned.
+            Once you receive admission and pay your deposit, the university will issue your <a href="https://www.ice.gov/sevis/i20" target="_blank" rel="noopener noreferrer" className="link-highlight">Form I-20</a> (Certificate of Eligibility for Nonimmigrant Student Status). Pay the required <a href="https://www.ice.gov/sevis/i901" target="_blank" rel="noopener noreferrer" className="link-highlight">I-901 SEVIS fee</a> and complete the <a href="https://ceac.state.gov/genniv/" target="_blank" rel="noopener noreferrer" className="link-highlight">DS-160 visa application</a> online. Schedule your visa interview at the nearest US embassy or consulate, preparing all necessary documents including your passport, I-20 form, financial evidence, and academic records. Attend the interview with confidence, clearly explaining your study plans and demonstrating strong ties to your home country. Pay the visa issuance fee upon approval and wait for your passport with the visa to be returned.
           </p>
           <div className="highlight-box">🗂️ <strong>Checklist:</strong> Double-check all your documents before your visa interview to avoid delays.</div>
         </div>
         <div className="section-divider" />
         <div className="content-section">
-          <h3>✈️ Step 5: Prepare for Your Journey</h3>
+          <h3>✈️ Step 6: Prepare for Your Journey</h3>
           <p>
             After receiving your visa, register for classes and arrange on-campus or off-campus housing. Connect with student organizations and orientation programs to ease your transition. Create a comprehensive pre-departure checklist including travel documents, health insurance, and essential items. Familiarize yourself with campus resources, academic support services, and cultural adjustment programs. Plan your arrival to allow time for orientation and settling in before classes begin.
           </p>
