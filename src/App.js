@@ -13,6 +13,7 @@ import SubPage51 from './components/SubPage51';
 import AgentSelector from './components/AgentSelector';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import SubPage30 from './components/SubPage30';
 
 function App() {
   const [activeButton, setActiveButton] = useState(2);
@@ -53,6 +54,8 @@ function App() {
           return 'IMKON - Security';
         case 56:
           return 'IMKON - Backup & Recovery';
+        case 30:
+          return 'IMKON - How';
         default:
           return 'IMKON - AI Platform';
       }
@@ -197,6 +200,8 @@ function App() {
             </div>
           </div>
         );
+      case 30:
+        return <SubPage30 />;
       default:
         return (
           <div className='chatbot-container'>

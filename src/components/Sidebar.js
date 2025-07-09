@@ -50,11 +50,19 @@ const Sidebar = ({ activeButton, onButtonClick }) => {
             onClick={() => handleDirectoryClick(1)}
           >
             <span className="button-icon">🏫</span>
-            <span className="button-text">Universities</span>
+            <span className="button-text">US Universities</span>
             <span className="directory-arrow">{expandedDirectory1 ? '▼' : '▶'}</span>
           </button>
           
           <div className={`sub-buttons ${expandedDirectory1 ? 'show' : ''}`}>
+            <button 
+              className={`sidebar-button sub-button ${activeButton === 30 ? 'active' : ''}`}
+              onClick={() => onButtonClick(30)}
+            >
+              <span className="button-icon">❓</span>
+              <span className="button-text">How</span>
+            </button>
+            
             <button 
               className={`sidebar-button sub-button ${activeButton === 31 ? 'active' : ''}`}
               onClick={() => onButtonClick(31)}
