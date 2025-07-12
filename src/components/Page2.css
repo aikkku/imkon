@@ -44,10 +44,11 @@
 }
 
 .page-header p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
   margin: 0;
-  font-weight: 400;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .page-content {
@@ -83,18 +84,19 @@
 
 .content-section h3 {
   color: white;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
   margin: 0 0 15px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 10px;
 }
 
 .content-section p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  line-height: 1.4;
   margin: 0 0 15px 0;
+  font-weight: 300;
 }
 
 .content-section p:last-child {
@@ -102,9 +104,9 @@
 }
 
 .content-section ul {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  line-height: 1.4;
   margin: 0;
   padding-left: 20px;
 }
@@ -180,8 +182,10 @@
 
 .stat-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
+  font-size: 11px;
   margin: 0;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .activities-list {
@@ -232,10 +236,11 @@
 }
 
 .activity-content p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
   margin: 0 0 10px 0;
-  line-height: 1.5;
+  line-height: 1.4;
+  font-weight: 300;
 }
 
 .activity-time {
@@ -294,8 +299,10 @@
 
 .action-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
+  font-size: 11px;
   margin: 0;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 /* Responsive design */
@@ -326,11 +333,11 @@
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 28px;
   }
   
   .content-section p {
-    font-size: 13px;
+    font-size: 11px;
   }
   
   .stats-grid {
@@ -339,5 +346,93 @@
   
   .quick-actions {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-2 {
+    height: 850px;
+    border-radius: 30px;
+  }
+  
+  .page-header {
+    padding: 30px 25px;
+  }
+  
+  .page-header h2 {
+    font-size: 32px;
+  }
+  
+  .page-header p {
+    font-size: 18px;
+  }
+  
+  .page-content {
+    padding: 30px 25px;
+  }
+  
+  .content-section {
+    padding: 25px;
+  }
+  
+  .content-section h3 {
+    font-size: 28px;
+  }
+  
+  .content-section p {
+    font-size: 11px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  .stat-info h4,
+  .activity-content h4,
+  .action-info h4 {
+    font-size: 20px;
+  }
+  .stat-info p,
+  .activity-content p,
+  .action-info p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .page-2 {
+    height: 900px;
+    border-radius: 35px;
+  }
+  
+  .page-header h2 {
+    font-size: 36px;
+  }
+  
+  .page-header p {
+    font-size: 20px;
+  }
+  
+  .content-section h3 {
+    font-size: 28px;
+  }
+  
+  .content-section p {
+    font-size: 11px;
+  }
+  
+  .stat-number {
+    font-size: 36px;
+  }
+  
+  .stat-info h4,
+  .activity-content h4,
+  .action-info h4 {
+    font-size: 22px;
+  }
+  .stat-info p,
+  .activity-content p,
+  .action-info p {
+    font-size: 15px;
   }
 } 

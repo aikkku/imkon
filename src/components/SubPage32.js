@@ -5,88 +5,100 @@ const SubPage32 = ({ activeButton }) => {
   return (
     <div className="sub-page-32">
       <div className="sub-page-header">
-        <h2>Team Collaboration</h2>
+        <h2>Scholarships</h2>
       </div>
       
       <div className="sub-page-content">
         <div className="content-section">
-          <h3>Team Management</h3>
-          <p>
-            Manage your development team, assign tasks, and track collaboration progress 
-            with comprehensive team management tools and real-time communication features.
-          </p>
+          <h3>US Scholarships for International Students</h3>
+          <p>Explore top scholarships open to international students applying to US universities. These programs offer funding for undergraduate and graduate study, and are open to students from Uzbekistan and around the world.</p>
         </div>
 
         <div className="content-section">
-          <h3>Team Members</h3>
-          <div className="team-grid">
-            <div className="team-member">
-              <div className="member-avatar">👨‍💻</div>
-              <div className="member-info">
-                <h4>John Smith</h4>
-                <p>Lead Developer</p>
-                <span className="member-status online">Online</span>
+          <h3>Major Scholarship Programs</h3>
+          <div className="info-cards">
+            <div className="info-card">
+              <div className="info-icon">🇺🇸</div>
+              <div className="info-content">
+                <h4>Fulbright Foreign Student Program</h4>
+                <p>Fully funded scholarships for graduate study or research in the US. Open to students from 155+ countries, including Uzbekistan.</p>
               </div>
             </div>
             
-            <div className="team-member">
-              <div className="member-avatar">👩‍💼</div>
-              <div className="member-info">
-                <h4>Sarah Johnson</h4>
-                <p>Project Manager</p>
-                <span className="member-status online">Online</span>
+            <div className="info-card">
+              <div className="info-icon">🌎</div>
+              <div className="info-content">
+                <h4>Hubert H. Humphrey Fellowship</h4>
+                <p>Non-degree program for experienced professionals to develop leadership and professional skills in the US.</p>
               </div>
             </div>
             
-            <div className="team-member">
-              <div className="member-avatar">👨‍🔬</div>
-              <div className="member-info">
-                <h4>Mike Chen</h4>
-                <p>Data Scientist</p>
-                <span className="member-status away">Away</span>
+            <div className="info-card">
+              <div className="info-icon">👩‍🎓</div>
+              <div className="info-content">
+                <h4>AAUW International Fellowships</h4>
+                <p>For women pursuing full-time graduate or postdoctoral study in the US. Open to all nationalities except US citizens.</p>
               </div>
             </div>
             
-            <div className="team-member">
-              <div className="member-avatar">👩‍🎨</div>
-              <div className="member-info">
-                <h4>Emma Davis</h4>
-                <p>UI/UX Designer</p>
-                <span className="member-status offline">Offline</span>
+            <div className="info-card">
+              <div className="info-icon">🏛️</div>
+              <div className="info-content">
+                <h4>American University Emerging Global Leader Scholarship</h4>
+                <p>Full-tuition scholarship for international undergraduates with leadership potential and a commitment to positive civic and social change.</p>
+              </div>
+            </div>
+            
+            <div className="info-card">
+              <div className="info-icon">🦉</div>
+              <div className="info-content">
+                <h4>Yale University Scholarships</h4>
+                <p>Need-based scholarships for international students at all levels. Awarded based on demonstrated financial need.</p>
+              </div>
+            </div>
+            
+            <div className="info-card">
+              <div className="info-icon">🎓</div>
+              <div className="info-content">
+                <h4>Clark University Global Scholars Program</h4>
+                <p>Merit-based scholarships for first-year international undergraduates who demonstrate leadership and commitment to making a difference.</p>
+              </div>
+            </div>
+            
+            <div className="info-card">
+              <div className="info-icon">🏆</div>
+              <div className="info-content">
+                <h4>The Gates Scholarship</h4>
+                <p>Highly selective, full scholarship for exceptional, Pell-eligible, minority high school seniors in the US, including international students at US high schools.</p>
+              </div>
+            </div>
+            
+            <div className="info-card">
+              <div className="info-icon">🦁</div>
+              <div className="info-content">
+                <h4>Illinois Wesleyan University International Student Scholarships</h4>
+                <p>Merit-based scholarships for qualified international applicants to undergraduate programs.</p>
+              </div>
+            </div>
+            
+            <div className="info-card">
+              <div className="info-icon">🦅</div>
+              <div className="info-content">
+                <h4>Harvard University Scholarships</h4>
+                <p>Need-based financial aid for international students at all levels. Awards are based on demonstrated need and can cover up to full cost.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="content-section">
-          <h3>Recent Activities</h3>
-          <div className="activities-list">
-            <div className="activity-item">
-              <div className="activity-icon">💬</div>
-              <div className="activity-content">
-                <h4>Team Meeting</h4>
-                <p>Weekly standup meeting completed</p>
-                <span className="activity-time">30 minutes ago</span>
-              </div>
-            </div>
-            
-            <div className="activity-item">
-              <div className="activity-icon">📝</div>
-              <div className="activity-content">
-                <h4>Task Assigned</h4>
-                <p>API documentation task assigned to John</p>
-                <span className="activity-time">1 hour ago</span>
-              </div>
-            </div>
-            
-            <div className="activity-item">
-              <div className="activity-icon">✅</div>
-              <div className="activity-content">
-                <h4>Code Review</h4>
-                <p>Sarah completed code review for feature branch</p>
-                <span className="activity-time">2 hours ago</span>
-              </div>
-            </div>
+          <h3>Application Tips</h3>
+          <div className="tip-box">
+            <p><strong>🎯 Start Early:</strong> Most scholarship applications open 6-12 months before the academic year begins.</p>
+            <p><strong>📝 Strong Essays:</strong> Write compelling personal statements that highlight your unique background and achievements.</p>
+            <p><strong>📊 Academic Excellence:</strong> Maintain strong grades and test scores to qualify for merit-based scholarships.</p>
+            <p><strong>🌍 Leadership Experience:</strong> Demonstrate leadership, community service, and extracurricular involvement.</p>
+            <p><strong>📋 Complete Applications:</strong> Submit all required documents well before deadlines.</p>
           </div>
         </div>
       </div>

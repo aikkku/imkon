@@ -14,6 +14,10 @@ import AgentSelector from './components/AgentSelector';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import SubPage30 from './components/SubPage30';
+import SubPage52 from './components/SubPage52';
+import SubPage53 from './components/SubPage53';
+import SubPage71 from './components/SubPage71';
+import SubPage72 from './components/SubPage72';
 
 function App() {
   const [activeButton, setActiveButton] = useState(2);
@@ -131,33 +135,9 @@ function App() {
       case 51:
         return <SubPage51 activeButton={activeButton} />;
       case 52:
-        return (
-          <div className="generic-page">
-            <div className="page-header">
-              <h2>Model Training</h2>
-            </div>
-            <div className="page-content">
-              <div className="content-section">
-                <h3>AI Model Training</h3>
-                <p>Train, validate, and deploy machine learning models with advanced tools.</p>
-              </div>
-            </div>
-          </div>
-        );
+        return <SubPage52 activeButton={activeButton} />;
       case 53:
-        return (
-          <div className="generic-page">
-            <div className="page-header">
-              <h2>Deployment</h2>
-            </div>
-            <div className="page-content">
-              <div className="content-section">
-                <h3>Model Deployment</h3>
-                <p>Deploy AI models to production with monitoring and scaling capabilities.</p>
-              </div>
-            </div>
-          </div>
-        );
+        return <SubPage53 activeButton={activeButton} />;
       case 54:
         return (
           <div className="generic-page">
@@ -202,6 +182,10 @@ function App() {
         );
       case 30:
         return <SubPage30 />;
+      case 71:
+        return <SubPage71 activeButton={activeButton} />;
+      case 72:
+        return <SubPage72 activeButton={activeButton} />;
       default:
         return (
           <div className='chatbot-container'>

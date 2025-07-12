@@ -72,18 +72,19 @@
 
 .content-section h3 {
   color: white;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
   margin: 0 0 15px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 10px;
 }
 
 .content-section p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  line-height: 1.4;
   margin: 0 0 15px 0;
+  font-weight: 300;
 }
 
 .content-section p:last-child {
@@ -139,8 +140,10 @@
 
 .member-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
+  font-size: 11px;
   margin: 0 0 8px 0;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .member-status {
@@ -216,9 +219,11 @@
 }
 
 .activity-content p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
   margin: 0 0 5px 0;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .activity-time {
@@ -227,10 +232,27 @@
   font-weight: 500;
 }
 
+.info-content h4,
+.component-info h4 {
+  color: white;
+  font-size: 15px !important;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+.info-content p,
+.component-info p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px !important;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .sub-page-32 {
     height: 600px;
+    margin-right: 10px;
   }
   
   .sub-page-header {
@@ -260,5 +282,71 @@
   
   .team-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sub-page-32 {
+    height: 850px;
+    border-radius: 30px;
+  }
+  
+  .sub-page-header {
+    padding: 30px 25px;
+  }
+  
+  .sub-page-header h2 {
+    font-size: 28px;
+  }
+  
+  .sub-page-content {
+    padding: 30px 25px;
+  }
+  
+  .content-section {
+    padding: 25px;
+  }
+  
+  .content-section h3 {
+    font-size: 22px;
+  }
+  
+  .content-section p {
+    font-size: 16px;
+  }
+  .info-content h4,
+  .component-info h4 {
+    font-size: 17px !important;
+  }
+  .info-content p,
+  .component-info p {
+    font-size: 13px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .sub-page-32 {
+    height: 900px;
+    border-radius: 35px;
+  }
+  
+  .sub-page-header h2 {
+    font-size: 32px;
+  }
+  
+  .content-section h3 {
+    font-size: 24px;
+  }
+  
+  .content-section p {
+    font-size: 18px;
+  }
+  .info-content h4,
+  .component-info h4 {
+    font-size: 17px !important;
+  }
+  .info-content p,
+  .component-info p {
+    font-size: 13px !important;
   }
 } 

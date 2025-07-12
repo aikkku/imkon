@@ -237,7 +237,6 @@
 @media (max-width: 768px) {
   .sidebar {
     width: 250px;
-    height: 600px;
   }
   
   .sidebar-header {
@@ -266,12 +265,11 @@
   }
   
   .sidebar-content {
-    padding: 15px;
-    gap: 12px;
+    padding: 20px 15px;
   }
   
   .sidebar-button {
-    padding: 10px 14px;
+    padding: 12px 15px;
     font-size: 13px;
   }
   
@@ -282,5 +280,44 @@
   .sub-button {
     padding: 8px 12px;
     font-size: 12px;
+  }
+  
+  .sub-buttons {
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    height: 850px;
+    border-radius: 30px;
+  }
+  
+  .sidebar-header {
+    padding: 30px 25px;
+  }
+  
+  .company-text {
+    font-size: 36px;
+  }
+  
+  .sidebar-content {
+    padding: 30px 25px;
+  }
+  
+  .sidebar-button {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .sidebar {
+    height: 900px;
+    border-radius: 35px;
+  }
+  
+  .company-text {
+    font-size: 40px;
   }
 }

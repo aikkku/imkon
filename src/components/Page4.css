@@ -139,17 +139,42 @@
   margin-bottom: 15px;
 }
 
-.chart-placeholder h4 {
+.chart-placeholder h4,
+.performance-header h4 {
   color: white;
-  font-size: 18px;
+  font-size: 15px !important;
   font-weight: 600;
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
+}
+.chart-placeholder p,
+.performance-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px !important;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
-.chart-placeholder p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  margin: 0;
+@media (min-width: 1200px) {
+  .chart-placeholder h4,
+  .performance-header h4 {
+    font-size: 17px !important;
+  }
+  .chart-placeholder p,
+  .performance-card p {
+    font-size: 13px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .chart-placeholder h4,
+  .performance-header h4 {
+    font-size: 17px !important;
+  }
+  .chart-placeholder p,
+  .performance-card p {
+    font-size: 13px !important;
+  }
 }
 
 .performance-grid {

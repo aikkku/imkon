@@ -76,23 +76,7 @@ const Sidebar = ({ activeButton, onButtonClick }) => {
               onClick={() => onButtonClick(32)}
             >
               <span className="button-icon">💰</span>
-              <span className="button-text">Full Financial Aid</span>
-            </button>
-            
-            <button 
-              className={`sidebar-button sub-button ${activeButton === 33 ? 'active' : ''}`}
-              onClick={() => onButtonClick(33)}
-            >
-              <span className="button-icon">🇬🇧</span>
-              <span className="button-text">UK Universities</span>
-            </button>
-            
-            <button 
-              className={`sidebar-button sub-button ${activeButton === 34 ? 'active' : ''}`}
-              onClick={() => onButtonClick(34)}
-            >
-              <span className="button-icon">🇪🇺</span>
-              <span className="button-text">European Universities</span>
+                              <span className="button-text">Scholarships</span>
             </button>
           </div>
         </div>
@@ -159,14 +143,6 @@ const Sidebar = ({ activeButton, onButtonClick }) => {
             >
               <span className="button-icon">❓</span>
               <span className="button-text">Why This University?</span>
-            </button>
-            
-            <button 
-              className={`sidebar-button sub-button ${activeButton === 73 ? 'active' : ''}`}
-              onClick={() => onButtonClick(73)}
-            >
-              <span className="button-icon">📚</span>
-              <span className="button-text">Essay Examples</span>
             </button>
           </div>
         </div>
