@@ -25,3 +25,23 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: Optional[str] = None 
+
+class UserProfileSchema(BaseModel):
+    name: str = ""
+    telephone: str = ""
+    address: str = ""
+    city: str = ""
+    gpa: str = ""
+    ielts: str = ""
+    sat: str = ""
+    interests: str = ""
+
+class UserProfileUpdateSchema(BaseModel):
+    name: str = ""
+    telephone: str = ""
+    address: str = ""
+    city: str = ""
+    gpa: str = ""
+    ielts: str = ""
+    sat: str = ""
+    interests: str = "" 

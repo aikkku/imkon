@@ -8,23 +8,29 @@ class ApiService {
   // Helper method to make HTTP requests
   async makeRequest(endpoint, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
     const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
       ...options,
+      headers: {
+        ...defaultHeaders,
+        ...(options.headers || {}),
+      },
     };
 
     try {
       const response = await fetch(url, config);
-      
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonErr) {
+        data = await response.text();
       }
-      
-      return await response.json();
+      if (!response.ok) {
+        throw new Error(data.detail || data.error || data.message || `HTTP error! status: ${response.status}`);
+      }
+      return data;
     } catch (error) {
       console.error('API request failed:', error);
       throw error;
@@ -76,9 +82,12 @@ class ApiService {
   }
 
   // Chat methods (existing functionality)
-  async sendChatMessage(message, conversationHistory = [], agentId = 1) {
+  async sendChatMessage(message, conversationHistory = [], agentId = 1, token) {
     return this.makeRequest('/api/chat', {
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({
         message,
         conversation_history: conversationHistory,
@@ -90,7 +99,47 @@ class ApiService {
   async getAvailableAgents() {
     return this.makeRequest('/api/agents');
   }
+
+  async getChatHistory(token, agentId = 1) {
+    try {
+      const data = await this.makeRequest('/api/chat/history', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      // If the response is an object with chat_history, extract it
+      const history = Array.isArray(data) ? data : (Array.isArray(data.chat_history) ? data.chat_history : []);
+      if (!Array.isArray(history)) {
+        console.error('Chat history response is not an array:', data);
+        return [];
+      }
+      return history;
+    } catch (err) {
+      console.error('Failed to fetch chat history:', err);
+      return [];
+    }
+  }
+
+  async getUserProfile(token) {
+    return this.makeRequest('/api/profile', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+  }
+
+  async updateUserProfile(profile, token) {
+    return this.makeRequest('/api/profile', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(profile),
+    });
+  }
 }
 
-const apiService = new ApiService();
-export default apiService; 
+const apiServiceInstance = new ApiService();
+export default apiServiceInstance; 

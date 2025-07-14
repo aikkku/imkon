@@ -10,8 +10,9 @@ from config import Config
 from models import ChatRequest, ChatResponse, ChatMessage as ChatMessageModel, ErrorResponse
 from openai_service import OpenAIService
 from database import engine, SessionLocal
-from user_models import User, ChatMessage
+from user_models import User, ChatMessage, UserProfile
 from auth_router import router as auth_router, get_current_user_bearer
+from auth_schemas import UserProfileSchema, UserProfileUpdateSchema
 
 # Create database tables
 from user_models import Base as UserBase
@@ -89,13 +90,39 @@ async def chat(request: ChatRequest, current_user: User = Depends(get_current_us
         if request.agent_id != 1:
             raise HTTPException(status_code=400, detail="Only agent 1 is currently supported")
         
+        # Fetch user profile
+        db = SessionLocal()
+        profile = db.query(UserProfile).filter(UserProfile.user_id == current_user.id).first()
+        db.close()
+        profile_summary = ""
+        if profile:
+            profile_summary = f"""
+            Student Profile:
+            Name: {profile.name or ''}
+            Telephone: {profile.telephone or ''}
+            Address: {profile.address or ''}
+            City: {profile.city or ''}
+            GPA: {profile.gpa or ''}
+            IELTS: {profile.ielts or ''}
+            SAT: {profile.sat or ''}
+            Interests: {profile.interests or ''}
+            """
+
+        # Prepend profile summary to conversation history
+        conversation_history = request.conversation_history or []
+        if profile_summary:
+            conversation_history = [{
+                "role": "system",
+                "content": profile_summary
+            }] + conversation_history
+
         # Generate conversation ID if not exists
         conversation_id = str(uuid.uuid4())
         
         # Get AI response
         ai_response = await openai_service.get_chat_response(
             message=request.message,
-            conversation_history=request.conversation_history
+            conversation_history=conversation_history
         )
         
         # Create response
@@ -164,13 +191,15 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
         reason = request.get("reason", "")
         user_preferences = request.get("userPreferences", {})
         current_universities = request.get("currentUniversities", [])
-        
+
         # Get chat history from database
         db = SessionLocal()
         messages = db.query(ChatMessage).filter(
             ChatMessage.user_id == current_user.id
         ).order_by(ChatMessage.timestamp.desc()).limit(20).all()  # Get last 20 messages
-        
+        profile = db.query(UserProfile).filter(UserProfile.user_id == current_user.id).first()
+        db.close()
+
         # Convert to list format
         chat_history = [
             {
@@ -180,14 +209,27 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
             }
             for msg in reversed(messages)  # Reverse to get chronological order
         ]
-        db.close()
-        
+
+        profile_summary = ""
+        if profile:
+            profile_summary = f"""
+            Student Profile:
+            Name: {profile.name or ''}
+            Telephone: {profile.telephone or ''}
+            Address: {profile.address or ''}
+            City: {profile.city or ''}
+            GPA: {profile.gpa or ''}
+            IELTS: {profile.ielts or ''}
+            SAT: {profile.sat or ''}
+            Interests: {profile.interests or ''}
+            """
+
         print(f"University suggestion request for user {current_user.email}:")
         print(f"User preferences: {user_preferences}")
         print(f"Disliked university: {disliked_university.get('name', 'Unknown')}")
         print(f"Reason: {reason}")
         print(f"Database chat history length: {len(chat_history)}")
-        
+
         # Create a comprehensive prompt for ChatGPT
         chat_context = ""
         if chat_history:
@@ -195,10 +237,11 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
             Recent conversation context from database:
             {chr(10).join([f"{msg.get('role', 'user')}: {msg.get('content', '')}" for msg in chat_history[-10:]])}
             """
-        
+
         prompt = f"""
         Based on the following comprehensive information, suggest a new university that would be a better fit:
 
+        {profile_summary}
         {chat_context}
         
         User Preferences: {json.dumps(user_preferences, indent=2)}
@@ -215,7 +258,7 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
         4. Would be appealing to international students from Uzbekistan
         5. Takes into account the conversation context above
         
-        IMPORTANT: Use the user's actual preferences from the database chat history. If they mentioned specific interests, countries, or budget constraints, prioritize those.
+        IMPORTANT: Use the user's actual preferences from the database chat history and the student profile above. If they mentioned specific interests, countries, or budget constraints, prioritize those.
         
         Return your response as a JSON object with the following structure:
         {{
@@ -223,11 +266,12 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
             "location": "City, Country",
             "ranking": "Ranking information",
             "acceptanceRate": "Acceptance rate",
-            "description": "Brief description of the university",
-            "personalizedDescription": "Why this university specifically matches the user's interests and preferences from the conversation"
+            "description": "Brief description of the university (max 200 characters)",
+            "personalizedDescription": "Why this university specifically matches the user's interests and preferences from the conversation (max 200 characters)"
         }}
         
         Make sure the response is valid JSON and includes all required fields.
+        Limit the description and personalizedDescription fields to a maximum of 200 characters each.
         """
         
         # Get suggestion from ChatGPT
@@ -252,7 +296,7 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
             for field in required_fields:
                 if field not in university_data:
                     university_data[field] = "Information not available"
-            
+
             print(f"Parsed university data: {university_data}")
             return university_data
             
@@ -454,6 +498,47 @@ async def get_available_agents():
             }
         ]
     }
+
+@app.get("/api/profile", response_model=UserProfileSchema)
+async def get_user_profile(current_user: User = Depends(get_current_user_bearer)):
+    db = SessionLocal()
+    profile = db.query(UserProfile).filter(UserProfile.user_id == current_user.id).first()
+    db.close()
+    if not profile:
+        return UserProfileSchema()
+    return UserProfileSchema(
+        name=profile.name or "",
+        telephone=profile.telephone or "",
+        address=profile.address or "",
+        city=profile.city or "",
+        gpa=profile.gpa or "",
+        ielts=profile.ielts or "",
+        sat=profile.sat or "",
+        interests=profile.interests or ""
+    )
+
+@app.post("/api/profile", response_model=UserProfileSchema)
+async def update_user_profile(update: UserProfileUpdateSchema, current_user: User = Depends(get_current_user_bearer)):
+    db = SessionLocal()
+    profile = db.query(UserProfile).filter(UserProfile.user_id == current_user.id).first()
+    if not profile:
+        profile = UserProfile(user_id=current_user.id)
+        db.add(profile)
+    for field, value in update.dict().items():
+        setattr(profile, field, value)
+    db.commit()
+    db.refresh(profile)
+    db.close()
+    return UserProfileSchema(
+        name=profile.name or "",
+        telephone=profile.telephone or "",
+        address=profile.address or "",
+        city=profile.city or "",
+        gpa=profile.gpa or "",
+        ielts=profile.ielts or "",
+        sat=profile.sat or "",
+        interests=profile.interests or ""
+    )
 
 if __name__ == "__main__":
     import uvicorn

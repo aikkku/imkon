@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './UniversityGrid.css';
+import ApiService from '../services/api';
 
 const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector }) => {
   console.log('UniversityGrid component rendered with activeAgent:', activeAgent);
-  
-  const API_BASE_URL = 'http://localhost:8000';
   
   const [universities, setUniversities] = useState([
     {
@@ -72,18 +71,18 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   // Function to extract user preferences from chat conversations
   const extractUserPreferences = async () => {
     try {
+      setError("");
       const token = localStorage.getItem('token');
       if (!token) {
-        console.log('No authentication token found');
+        setError('You are not authenticated. Please log in again.');
         return;
       }
-
       console.log('Extracting preferences from database chat history');
-
       // Create a prompt to analyze user preferences
       const analysisPrompt = `
         Analyze the following chat conversation and extract user preferences for university applications.
@@ -105,30 +104,21 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
         
         If no specific information is found, use reasonable defaults but mark them as inferred.
       `;
-
       console.log('Sending preferences analysis request...');
-      const response = await fetch(`${API_BASE_URL}/api/analyze-preferences`, {
+      const preferences = await ApiService.makeRequest('/api/analyze-preferences', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-          prompt: analysisPrompt
-        })
+        body: JSON.stringify({ prompt: analysisPrompt })
       });
-
-      console.log('Preferences analysis response status:', response.status);
-      
-      if (response.ok) {
-        const preferences = await response.json();
-        console.log('Extracted preferences from database:', preferences);
-        setUserPreferences(preferences);
-      } else {
-        const errorText = await response.text();
-        console.error('Failed to analyze preferences:', response.status, errorText);
-      }
+      console.log('Extracted preferences from database:', preferences);
+      setUserPreferences(preferences && typeof preferences === 'object' ? preferences : {
+        interests: [], academicLevel: '', budget: '', location: '', field: ''
+      });
     } catch (error) {
+      setError('Failed to extract user preferences. Please try again later.');
+      setUserPreferences({ interests: [], academicLevel: '', budget: '', location: '', field: '' });
       console.error('Error extracting user preferences:', error);
     }
   };
@@ -174,22 +164,19 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
   // Function to request new university from ChatGPT
   const requestNewUniversity = async (dislikedUniversity, reason) => {
     setIsLoading(true);
-    
+    setError("");
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        console.error('No authentication token found');
+        setError('You are not authenticated. Please log in again.');
         addFallbackUniversity();
         return;
       }
-
       console.log('Requesting new university with preferences:', userPreferences);
       console.log('Disliked university:', dislikedUniversity.name);
-      
-      const response = await fetch(`${API_BASE_URL}/api/university-suggestion`, {
+      const newUniversity = await ApiService.makeRequest('/api/university-suggestion', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
@@ -199,22 +186,13 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
           currentUniversities: universities.map(u => u.name)
         })
       });
-
-      if (response.ok) {
-        const newUniversity = await response.json();
-        console.log('Received new university suggestion:', newUniversity);
-        
-        // Add the new university to the list
-        setUniversities(prev => [...prev, {
-          ...newUniversity,
-          id: Math.max(...prev.map(u => u.id)) + 1
-        }]);
-      } else {
-        console.error('Failed to get new university suggestion');
-        // Fallback: add a generic university
-        addFallbackUniversity();
-      }
+      console.log('Received new university suggestion:', newUniversity);
+      setUniversities(prev => [...prev, {
+        ...newUniversity,
+        id: Math.max(...prev.map(u => u.id)) + 1
+      }]);
     } catch (error) {
+      setError('Failed to get a new university suggestion. Please try again later.');
       console.error('Error requesting new university:', error);
       addFallbackUniversity();
     } finally {
@@ -308,6 +286,9 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
           <div className="loading-spinner"></div>
           <p>Finding a better university match for you...</p>
         </div>
+      )}
+      {error && (
+        <div className="error-message" style={{ color: 'red', margin: '10px 0' }}>{error}</div>
       )}
       
       <div className="university-grid">

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import Chatbot from './components/Chatbot';
-import UniversityGrid from './components/UniversityGrid';
-import Page2 from './components/Page2';
 import Page4 from './components/Page4';
 import SubPage31 from './components/SubPage31';
 import SubPage32 from './components/SubPage32';
@@ -19,6 +17,8 @@ import SubPage52 from './components/SubPage52';
 import SubPage53 from './components/SubPage53';
 import SubPage71 from './components/SubPage71';
 import SubPage72 from './components/SubPage72';
+import UniversityGrid from './components/UniversityGrid';
+import Page2 from './components/Page2';
 
 function App() {
   const [activeButton, setActiveButton] = useState(2);
@@ -71,10 +71,6 @@ function App() {
 
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
-    // Reset to AIbek chatbot when clicking AIbek button
-    if (buttonNumber === 1) {
-      setActiveAgent(1);
-    }
   };
 
   const handleAgentSelect = (agentNumber) => {
@@ -95,41 +91,6 @@ function App() {
     setIsLoggedIn(true);
   };
 
-  const handleLogout = async () => {
-    console.log('Logging out...');
-    
-    try {
-      const token = localStorage.getItem('token');
-      if (token) {
-        // Clear chat history from database
-        const response = await fetch('http://localhost:8000/api/chat/history/clear', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        
-        if (response.ok) {
-          console.log('Chat history cleared from database');
-        } else {
-          console.error('Failed to clear chat history from database');
-        }
-      }
-    } catch (error) {
-      console.error('Error clearing chat history:', error);
-    }
-    
-    // Clear local storage
-    localStorage.removeItem('token');
-    localStorage.removeItem('chatHistory');
-    
-    // Reset app state
-    setIsLoggedIn(false);
-    setActiveButton(1);
-    setActiveAgent(1);
-    setShowAgentSelector(false);
-  };
-
   const switchToSignup = () => {
     setShowSignup(true);
   };
@@ -141,34 +102,33 @@ function App() {
   const renderRightContent = () => {
     switch (activeButton) {
       case 1:
+        // If University Explorer agent is selected, show UniversityGrid instead of Chatbot
+        if (activeAgent === 2) {
+          return (
+            <div className='university-explorer-container'>
+              <UniversityGrid 
+                activeAgent={activeAgent}
+                onToggleAgentSelector={toggleAgentSelector}
+                showAgentSelector={showAgentSelector}
+              />
+              <div className={`agent-selector-container ${showAgentSelector ? 'show' : 'hide'}`}>
+                <AgentSelector 
+                  activeAgent={activeAgent} 
+                  onAgentSelect={handleAgentSelect} 
+                  onClose={toggleAgentSelector}
+                />
+              </div>
+            </div>
+          );
+        }
         return (
           <div className='chatbot-container'>
-            {activeAgent === 1 ? (
-              <Chatbot 
-                activeButton={activeButton} 
-                activeAgent={activeAgent} 
-                onToggleAgentSelector={toggleAgentSelector}
-                showAgentSelector={showAgentSelector}
-              />
-            ) : activeAgent === 2 ? (
-              <UniversityGrid 
-                activeAgent={activeAgent} 
-                onToggleAgentSelector={toggleAgentSelector}
-                showAgentSelector={showAgentSelector}
-              />
-            ) : (
-              <div className="generic-page">
-                <div className="page-header">
-                  <h2>Agent {activeAgent}</h2>
-                </div>
-                <div className="page-content">
-                  <div className="content-section">
-                    <h3>Coming Soon</h3>
-                    <p>This agent is under development.</p>
-                  </div>
-                </div>
-              </div>
-            )}
+            <Chatbot 
+              activeButton={activeButton} 
+              activeAgent={activeAgent} 
+              onToggleAgentSelector={toggleAgentSelector}
+              showAgentSelector={showAgentSelector}
+            />
             <div className={`agent-selector-container ${showAgentSelector ? 'show' : 'hide'}`}>
               <AgentSelector 
                 activeAgent={activeAgent} 
@@ -249,32 +209,12 @@ function App() {
       default:
         return (
           <div className='chatbot-container'>
-            {activeAgent === 1 ? (
-              <Chatbot 
-                activeButton={activeButton} 
-                activeAgent={activeAgent} 
-                onToggleAgentSelector={toggleAgentSelector}
-                showAgentSelector={showAgentSelector}
-              />
-            ) : activeAgent === 2 ? (
-              <UniversityGrid 
-                activeAgent={activeAgent} 
-                onToggleAgentSelector={toggleAgentSelector}
-                showAgentSelector={showAgentSelector}
-              />
-            ) : (
-              <div className="generic-page">
-                <div className="page-header">
-                  <h2>Agent {activeAgent}</h2>
-                </div>
-                <div className="page-content">
-                  <div className="content-section">
-                    <h3>Coming Soon</h3>
-                    <p>This agent is under development.</p>
-                  </div>
-                </div>
-              </div>
-            )}
+            <Chatbot 
+              activeButton={activeButton} 
+              activeAgent={activeAgent} 
+              onToggleAgentSelector={toggleAgentSelector}
+              showAgentSelector={showAgentSelector}
+            />
             <div className={`agent-selector-container ${showAgentSelector ? 'show' : 'hide'}`}>
               <AgentSelector 
                 activeAgent={activeAgent} 
@@ -299,8 +239,7 @@ function App() {
         <div className="container">
           <Sidebar 
             activeButton={activeButton} 
-            onButtonClick={handleButtonClick}
-            onLogout={handleLogout}
+            onButtonClick={handleButtonClick} 
           />
           {renderRightContent()}
         </div>

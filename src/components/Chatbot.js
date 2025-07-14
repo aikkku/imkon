@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
 import ReactMarkdown from 'react-markdown';
+import ApiService from '../services/api';
 
 const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSelector }) => {
   const [messages, setMessages] = useState([
@@ -9,119 +10,66 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const API_BASE_URL = 'http://localhost:8000';
-
-  // Load chat history from database on component mount
   useEffect(() => {
-    const loadChatHistory = async () => {
+    const fetchChatHistory = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
       try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          console.log('No authentication token found');
+        const history = await ApiService.getChatHistory(token, activeAgent);
+        if (!Array.isArray(history) || history.length === 0) {
+          setMessages([{ id: 1, text: 'Hello! I\'m AIbek, your university application specialist. How can I help you today?', sender: 'bot' }]);
           return;
         }
-
-        const response = await fetch(`${API_BASE_URL}/api/chat/history`, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          if (data.chat_history && data.chat_history.length > 0) {
-            // Convert database format to component format
-            const convertedMessages = data.chat_history.map((msg, index) => ({
-              id: index + 1,
-              text: msg.content,
-              sender: msg.role === 'user' ? 'user' : 'bot',
-              timestamp: msg.timestamp
-            }));
-            
-            // Add initial greeting if no messages exist
-            if (convertedMessages.length === 0) {
-              convertedMessages.unshift({
-                id: 1,
-                text: 'Hello! I\'m AIbek, your university application specialist. How can I help you today?',
-                sender: 'bot'
-              });
-            }
-            
-            setMessages(convertedMessages);
-            console.log('Loaded chat history from database:', convertedMessages.length, 'messages');
-          }
+        // Map backend history to local message format
+        const mapped = history.map((msg, idx) => ({
+          id: idx + 1,
+          text: msg.content,
+          sender: msg.role === 'user' ? 'user' : 'bot',
+        }));
+        setMessages(mapped);
+      } catch (err) {
+        if (err.message && err.message.toLowerCase().includes('not authenticated')) {
+          setMessages([{ id: 1, text: 'You are not authenticated. Please log in again.', sender: 'bot' }]);
         } else {
-          console.error('Failed to load chat history');
+          setMessages([{ id: 1, text: 'Sorry, I\'m having trouble loading your chat history.', sender: 'bot' }]);
         }
-      } catch (error) {
-        console.error('Error loading chat history:', error);
+        console.error('Failed to fetch chat history:', err);
       }
     };
-
-    loadChatHistory();
-  }, []);
+    fetchChatHistory();
+  }, [activeAgent, activeButton]);
 
   const handleSendMessage = async () => {
     if (inputMessage.trim() && !isLoading) {
       const userMessage = {
         id: messages.length + 1,
         text: inputMessage,
-        sender: 'user',
-        timestamp: new Date().toISOString()
+        sender: 'user'
       };
-      
       setMessages(prev => [...prev, userMessage]);
       setInputMessage('');
       setIsLoading(true);
-
       try {
-        // Prepare conversation history for the API
-        const conversationHistory = messages
-          .filter(msg => msg.sender !== 'bot' || msg.id !== 1) // Exclude initial greeting
-          .map(msg => ({
-            role: msg.sender === 'user' ? 'user' : 'assistant',
-            content: msg.text,
-            timestamp: msg.timestamp || new Date().toISOString()
-          }));
-
         const token = localStorage.getItem('token');
-        const response = await fetch(`${API_BASE_URL}/api/chat`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({
-            message: inputMessage,
-            conversation_history: conversationHistory,
-            agent_id: activeAgent
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        
+        const conversationHistory = messages.map(msg => ({
+          role: msg.sender === 'user' ? 'user' : 'assistant',
+          content: msg.text,
+          timestamp: new Date().toISOString()
+        }));
+        const data = await ApiService.sendChatMessage(inputMessage, conversationHistory, activeAgent, token);
         const botResponse = {
           id: messages.length + 2,
           text: data.message,
-          sender: 'bot',
-          timestamp: new Date().toISOString()
+          sender: 'bot'
         };
-        
         setMessages(prev => [...prev, botResponse]);
       } catch (error) {
         console.error('Error sending message:', error);
-        
         const errorResponse = {
           id: messages.length + 2,
           text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
-          sender: 'bot',
-          timestamp: new Date().toISOString()
+          sender: 'bot'
         };
-        
         setMessages(prev => [...prev, errorResponse]);
       } finally {
         setIsLoading(false);

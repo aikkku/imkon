@@ -26,3 +26,21 @@ class ChatMessage(Base):
     
     # Relationship to user
     user = relationship("User", back_populates="chat_messages") 
+
+class UserProfile(Base):
+    __tablename__ = 'user_profiles'
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False, unique=True)
+    name = Column(String, nullable=True)
+    telephone = Column(String, nullable=True)
+    address = Column(String, nullable=True)
+    city = Column(String, nullable=True)
+    gpa = Column(String, nullable=True)
+    ielts = Column(String, nullable=True)
+    sat = Column(String, nullable=True)
+    interests = Column(String, nullable=True)
+
+    user = relationship("User", back_populates="profile")
+
+User.profile = relationship("UserProfile", uselist=False, back_populates="user", cascade="all, delete-orphan") 

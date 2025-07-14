@@ -6,7 +6,7 @@ load_dotenv()
 
 class Config:
     # OpenAI Configuration
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "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")
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "openai-key-here")
     
     # OpenAI Configuration
     OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")

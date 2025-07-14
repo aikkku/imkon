@@ -81,7 +81,7 @@ Your expertise includes:
 Remember: You're here to make the university application process less overwhelming and more achievable for students from Uzbekistan!"""
         }
     
-    def _format_conversation_history(self, history: List[ChatMessage]) -> List[Dict[str, str]]:
+    def _format_conversation_history(self, history: List[Any]) -> List[Dict[str, str]]:
         """Format conversation history for OpenAI API"""
         formatted_history = []
         
@@ -91,14 +91,21 @@ Remember: You're here to make the university application process less overwhelmi
         
         # Add conversation history
         for msg in history[-10:]:  # Keep last 10 messages for context
+            # Support both dict and object
+            if isinstance(msg, dict):
+                role = msg.get("role", "user")
+                content = msg.get("content", "")
+            else:
+                role = getattr(msg, "role", "user")
+                content = getattr(msg, "content", "")
             formatted_history.append({
-                "role": msg.role,
-                "content": msg.content
+                "role": role,
+                "content": content
             })
         
         return formatted_history
     
-    async def get_chat_response(self, message: str, conversation_history: List[ChatMessage] = None) -> str:
+    async def get_chat_response(self, message: str, conversation_history: List[Any] = None) -> str:
         """Get response from ChatGPT"""
         try:
             if conversation_history is None:
