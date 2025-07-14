@@ -145,7 +145,7 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
                 className="password-toggle"
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? "🙈" : "🙉"}
               </button>
             </div>
             {errors.password && <span className="error-message">{errors.password}</span>}

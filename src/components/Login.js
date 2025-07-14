@@ -96,7 +96,7 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
                 className="password-toggle"
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? "🙈" : "🙉"}
               </button>
             </div>
           </div>

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
+import ReactMarkdown from 'react-markdown';
 
 const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSelector }) => {
   const [messages, setMessages] = useState([
@@ -10,12 +11,63 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
 
   const API_BASE_URL = 'http://localhost:8000';
 
+  // Load chat history from database on component mount
+  useEffect(() => {
+    const loadChatHistory = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          console.log('No authentication token found');
+          return;
+        }
+
+        const response = await fetch(`${API_BASE_URL}/api/chat/history`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.chat_history && data.chat_history.length > 0) {
+            // Convert database format to component format
+            const convertedMessages = data.chat_history.map((msg, index) => ({
+              id: index + 1,
+              text: msg.content,
+              sender: msg.role === 'user' ? 'user' : 'bot',
+              timestamp: msg.timestamp
+            }));
+            
+            // Add initial greeting if no messages exist
+            if (convertedMessages.length === 0) {
+              convertedMessages.unshift({
+                id: 1,
+                text: 'Hello! I\'m AIbek, your university application specialist. How can I help you today?',
+                sender: 'bot'
+              });
+            }
+            
+            setMessages(convertedMessages);
+            console.log('Loaded chat history from database:', convertedMessages.length, 'messages');
+          }
+        } else {
+          console.error('Failed to load chat history');
+        }
+      } catch (error) {
+        console.error('Error loading chat history:', error);
+      }
+    };
+
+    loadChatHistory();
+  }, []);
+
   const handleSendMessage = async () => {
     if (inputMessage.trim() && !isLoading) {
       const userMessage = {
         id: messages.length + 1,
         text: inputMessage,
-        sender: 'user'
+        sender: 'user',
+        timestamp: new Date().toISOString()
       };
       
       setMessages(prev => [...prev, userMessage]);
@@ -29,13 +81,15 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
           .map(msg => ({
             role: msg.sender === 'user' ? 'user' : 'assistant',
             content: msg.text,
-            timestamp: new Date().toISOString()
+            timestamp: msg.timestamp || new Date().toISOString()
           }));
 
+        const token = localStorage.getItem('token');
         const response = await fetch(`${API_BASE_URL}/api/chat`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({
             message: inputMessage,
@@ -53,7 +107,8 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
         const botResponse = {
           id: messages.length + 2,
           text: data.message,
-          sender: 'bot'
+          sender: 'bot',
+          timestamp: new Date().toISOString()
         };
         
         setMessages(prev => [...prev, botResponse]);
@@ -63,7 +118,8 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
         const errorResponse = {
           id: messages.length + 2,
           text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
-          sender: 'bot'
+          sender: 'bot',
+          timestamp: new Date().toISOString()
         };
         
         setMessages(prev => [...prev, errorResponse]);
@@ -109,7 +165,11 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
             className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
           >
             <div className="message-content">
-              {message.text}
+              {message.sender === 'bot' ? (
+                <ReactMarkdown>{message.text}</ReactMarkdown>
+              ) : (
+                message.text
+              )}
             </div>
           </div>
         ))}

@@ -3,11 +3,11 @@ import './AgentSelector.css';
 
 const AgentSelector = ({ activeAgent, onAgentSelect, onClose }) => {
   const agents = [
-    { id: 1, label: 'Agent 1' },
-    { id: 2, label: 'Agent 2' },
-    { id: 3, label: 'Agent 3' },
-    { id: 4, label: 'Agent 4' },
-    { id: 5, label: 'Agent 5' }
+    { id: 1, label: 'AIbek Chatbot', description: 'AI assistant for university applications' },
+    { id: 2, label: 'University Explorer', description: 'Browse top universities worldwide' },
+    { id: 3, label: 'Agent 3', description: 'Coming soon' },
+    { id: 4, label: 'Agent 4', description: 'Coming soon' },
+    { id: 5, label: 'Agent 5', description: 'Coming soon' }
   ];
 
   return (
@@ -29,7 +29,10 @@ const AgentSelector = ({ activeAgent, onAgentSelect, onClose }) => {
             className={`glass-button ${activeAgent === agent.id ? 'active' : ''}`}
             onClick={() => onAgentSelect(agent.id)}
           >
-            {agent.label}
+            <div className="agent-info">
+              <div className="agent-label">{agent.label}</div>
+              <div className="agent-description">{agent.description}</div>
+            </div>
           </button>
         ))}
       </div>

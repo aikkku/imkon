@@ -1,0 +1,9 @@
+Asilbek:
+ - chatgpt kirgizish
+ - block universities
+ - formani tahlash
+
+Javlonbek:
+ - frontend tugatish
+ - mobile adaptation
+ - main page decoration

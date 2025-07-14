@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 
-const Sidebar = ({ activeButton, onButtonClick }) => {
+const Sidebar = ({ activeButton, onButtonClick, onLogout }) => {
   const [expandedDirectory1, setExpandedDirectory1] = useState(false);
   const [expandedDirectory2, setExpandedDirectory2] = useState(false);
   const [expandedDirectory3, setExpandedDirectory3] = useState(false);
@@ -76,7 +76,7 @@ const Sidebar = ({ activeButton, onButtonClick }) => {
               onClick={() => onButtonClick(32)}
             >
               <span className="button-icon">💰</span>
-                              <span className="button-text">Scholarships</span>
+              <span className="button-text">Scholarships</span>
             </button>
           </div>
         </div>
@@ -146,6 +146,16 @@ const Sidebar = ({ activeButton, onButtonClick }) => {
             </button>
           </div>
         </div>
+      </div>
+      
+      <div className="sidebar-footer">
+        <button 
+          className="logout-button"
+          onClick={onLogout}
+        >
+          <span className="button-icon">🚪</span>
+          <span className="button-text">Logout</span>
+        </button>
       </div>
     </div>
   );
