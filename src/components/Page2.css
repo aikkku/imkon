@@ -56,10 +56,17 @@
   padding: 30px;
   overflow-y: auto;
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  flex-direction: row;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.home-info-section {
+  flex: 2;
+  min-width: 0;
+  max-width: 600px;
+  margin-right: 0;
 }
 
 .page-content::-webkit-scrollbar {
@@ -120,7 +127,7 @@
 }
 
 .content-section strong {
-  color: #60a5fa;
+  color: #6c2eb7;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -540,4 +547,15 @@
   background: #aaa;
   color: #eee;
   cursor: not-allowed;
+} 
+
+@media (max-width: 900px) {
+  .page-content {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .home-info-section, .profile-card.glass-card {
+    max-width: 100%;
+    width: 100%;
+  }
 } 

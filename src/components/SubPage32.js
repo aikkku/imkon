@@ -62,9 +62,9 @@ const SubPage32 = ({ activeButton }) => {
               <div className="info-content">
                 <h4>Clark University Global Scholars Program</h4>
                 <p>Merit-based scholarships for first-year international undergraduates who demonstrate leadership and commitment to making a difference.</p>
-              </div>
-            </div>
-            
+          </div>
+        </div>
+
             <div className="info-card">
               <div className="info-icon">🏆</div>
               <div className="info-content">

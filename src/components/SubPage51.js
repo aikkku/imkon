@@ -148,7 +148,7 @@ const SubPage51 = ({ activeButton }) => {
                 <h4>Waterford Kamhlaba UWC of Southern Africa</h4>
                 <p>Mbabane, Eswatini</p>
               </div>
-            </div>
+                </div>
             
             <div className="school-card">
               <div className="school-icon">🇧🇦</div>
@@ -164,7 +164,7 @@ const SubPage51 = ({ activeButton }) => {
                 <h4>UWC Maastricht</h4>
                 <p>Maastricht, Netherlands</p>
               </div>
-            </div>
+                </div>
             
             <div className="school-card">
               <div className="school-icon">🇸🇬</div>
@@ -180,7 +180,7 @@ const SubPage51 = ({ activeButton }) => {
                 <h4>UWC Thailand</h4>
                 <p>Phuket, Thailand</p>
               </div>
-            </div>
+                </div>
             
             <div className="school-card">
               <div className="school-icon">🇦🇲</div>

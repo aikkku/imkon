@@ -60,6 +60,27 @@ const Page2 = ({ activeButton }) => {
         <p>Your personal study abroad assistant</p>
       </div>
       <div className="page-content">
+        <div className="content-section home-info-section">
+          <h3>Welcome to IMKON</h3>
+          <p><strong>IMKON</strong> is your all-in-one platform for international education opportunities, scholarships, and application support. Our mission is to empower students from Uzbekistan and beyond to achieve their dreams of studying abroad by providing clear, reliable, and up-to-date information.</p>
+          <ul>
+            <li><strong>Personalized Guidance:</strong> Create your student profile to get tailored advice and track your progress.</li>
+            <li><strong>Program Information:</strong> Explore detailed guides on UWC, FLEX, US universities, and more.</li>
+            <li><strong>Application Tips:</strong> Access step-by-step instructions, essay writing help, and interview preparation.</li>
+            <li><strong>Scholarships & Financial Aid:</strong> Find opportunities and learn how to maximize your chances.</li>
+            <li><strong>Community Support:</strong> Connect with alumni, mentors, and fellow applicants.</li>
+          </ul>
+          <p><strong>Who is IMKON for?</strong><br/>
+          - High school students seeking international education<br/>
+          - Parents and counselors supporting students<br/>
+          - Anyone interested in global study opportunities</p>
+          <p><strong>How to Use IMKON:</strong><br/>
+          1. Register and complete your student profile.<br/>
+          2. Browse program sections for requirements and deadlines.<br/>
+          3. Use our resources to prepare your application materials.<br/>
+          4. Reach out for help or join our community for support.<br/>
+          </p>
+        </div>
         <div className="profile-card glass-card">
           <h3>Student Profile</h3>
           {message && <div className="profile-message">{message}</div>}
@@ -94,12 +115,6 @@ const Page2 = ({ activeButton }) => {
               <button type="submit" className="profile-btn save">Save</button>
             </div>
           </form>
-        </div>
-        <div className="content-section">
-          <h3>Welcome</h3>
-          <p>
-            Hello World! This is your gateway to studying abroad from Uzbekistan.
-          </p>
         </div>
       </div>
     </div>

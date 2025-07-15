@@ -359,7 +359,7 @@ const SubPage31 = ({ activeButton }) => {
                 <h4>Click "Major" Boxes</h4>
                 <p>Some schools have "Why Major" essays that only appear after selecting a particular major or field</p>
               </div>
-            </div>
+                </div>
             
             <div className="faq-item">
               <div className="faq-icon">⏰</div>
@@ -375,7 +375,7 @@ const SubPage31 = ({ activeButton }) => {
                 <h4>Fee Waivers</h4>
                 <p>Almost half of all Common App colleges don't charge application fees. You can get free applications</p>
               </div>
-            </div>
+                </div>
             
             <div className="faq-item">
               <div className="faq-icon">📝</div>
