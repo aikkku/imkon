@@ -251,8 +251,17 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .sub-page-32 {
-    height: 600px;
-    margin-right: 10px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    min-height: 100vh;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
   }
   
   .sub-page-header {

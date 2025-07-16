@@ -28,6 +28,8 @@ function App() {
   const [showAgentSelector, setShowAgentSelector] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   // Update page title based on active button
   useEffect(() => {
@@ -79,6 +81,13 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const isMobile = windowWidth <= 768;
+
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
@@ -114,6 +123,10 @@ function App() {
     localStorage.removeItem('user');
     setIsLoggedIn(false);
     setShowSignup(false); // Ensure login page is shown
+  };
+
+  const handleHamburgerClick = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   const renderRightContent = () => {
@@ -245,29 +258,71 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/terms" element={<TermsOfUse />} />
-        <Route path="*" element={
-          !isLoggedIn ? (
-            showSignup ? (
-              <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
-            ) : (
-              <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
-            )
-          ) : (
-            <div className="container">
-              <Sidebar 
-                activeButton={activeButton} 
-                onButtonClick={handleButtonClick} 
-                onLogout={handleLogout}
-              />
-              {renderRightContent()}
-            </div>
-          )
-        } />
-      </Routes>
-    </div>
+    isMobile ? (
+      <div className="app-mobile-container">
+        {/* Mobile Header */}
+        <div className="mobile-header">
+          <button className="hamburger-btn" onClick={handleHamburgerClick}>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+          <div className="mobile-logo">IMKON</div>
+          <button className="mobile-aibek-btn" onClick={() => handleButtonClick(1)}>
+            <span role="img" aria-label="Aibek">🤖</span> AIbek
+          </button>
+        </div>
+        {/* Sidebar (mobile overlay) */}
+        <Sidebar
+          activeButton={activeButton}
+          onButtonClick={handleButtonClick}
+          onLogout={handleLogout}
+          isMobileOpen={isSidebarOpen}
+          onCloseMobileSidebar={() => setIsSidebarOpen(false)}
+        />
+        {/* Main Content: use main-content class for mobile too */}
+        <div className="main-content">
+          <Routes>
+            <Route path="/terms" element={<TermsOfUse />} />
+            <Route path="*" element={
+              !isLoggedIn ? (
+                showSignup ? (
+                  <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+                ) : (
+                  <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+                )
+              ) : (
+                renderRightContent()
+              )
+            } />
+          </Routes>
+        </div>
+      </div>
+    ) : (
+      <div className="container">
+        <Sidebar
+          activeButton={activeButton}
+          onButtonClick={handleButtonClick}
+          onLogout={handleLogout}
+        />
+        <div className="main-content">
+          <Routes>
+            <Route path="/terms" element={<TermsOfUse />} />
+            <Route path="*" element={
+              !isLoggedIn ? (
+                showSignup ? (
+                  <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+                ) : (
+                  <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+                )
+              ) : (
+                renderRightContent()
+              )
+            } />
+          </Routes>
+        </div>
+      </div>
+    )
   );
 }
 

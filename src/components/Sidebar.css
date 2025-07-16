@@ -233,6 +233,62 @@
   border-color: rgba(102, 126, 234, 0.3);
 }
 
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 80, 80, 0.10);
+  border-radius: 12px;
+  color: #e53935;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+.logout-button .button-icon {
+  font-size: 18px;
+  color: #e53935;
+  transition: color 0.3s;
+}
+.logout-button:hover {
+  background: rgba(229, 57, 53, 0.10);
+  color: #b71c1c;
+  border-color: #e53935;
+  box-shadow: 0 4px 15px rgba(229, 57, 53, 0.10);
+  transform: translateY(-1px);
+}
+.logout-button:hover .button-icon {
+  color: #b71c1c;
+}
+
+@media (max-width: 768px) {
+  .logout-button {
+    background: rgba(255, 80, 80, 0.12);
+    border: 1px solid rgba(255, 80, 80, 0.25);
+    color: #ff2222;
+    box-shadow: 0 4px 15px rgba(255, 80, 80, 0.10);
+  }
+  .logout-button .button-icon {
+    color: #ff2222;
+  }
+  .logout-button:hover {
+    background: rgba(255, 80, 80, 0.22);
+    color: #ff0000;
+    border-color: #ff5f6d;
+    box-shadow: 0 6px 20px rgba(255, 80, 80, 0.18);
+  }
+  .logout-button:hover .button-icon {
+    color: #ff0000;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .sidebar {
@@ -244,7 +300,9 @@
   }
   
   .company-text {
-    font-size: 18px;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
   }
   
   .company-subtitle {
@@ -319,5 +377,156 @@
   
   .company-text {
     font-size: 40px;
+  }
+}
+
+/* Mobile hamburger and header */
+.mobile-header {
+  display: none;
+}
+
+.hamburger-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 56px;
+    background: rgba(255,255,255,0.15); /* glassmorphism */
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .mobile-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #667eea;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .mobile-aibek-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+  }
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(102,126,234,0.18);
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1003;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+  }
+  .hamburger-line {
+    width: 24px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80vw;
+    max-width: 300px;
+    z-index: 1100;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 0 20px 20px 0;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    margin: 0;
+    /* Remove opacity, pointer-events, display toggling */
+  }
+  .sidebar.mobile.open {
+    transform: translateX(0);
+  }
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(102,126,234,0.10);
+    backdrop-filter: blur(4px);
+    z-index: 1099;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+  }
+  .sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sidebar-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(102,126,234,0.18);
+    border-radius: 8px;
+    font-size: 2rem;
+    color: #667eea;
+    cursor: pointer;
+    z-index: 1200;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+  }
+  .sidebar-header {
+    margin-top: 56px;
+  }
+  .main-content {
+    margin-top: 56px;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar-overlay {
+    display: none;
+  }
+  .mobile-header, .hamburger-btn, .sidebar-close-btn {
+    display: none !important;
+  }
+  .main-content {
+    margin-top: 0;
+    padding: 2rem;
   }
 }

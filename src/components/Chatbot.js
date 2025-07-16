@@ -83,6 +83,83 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
     }
   };
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  if (isMobile) {
+    return (
+      <div className="chatbot-mobile-wrapper">
+        <div className="chatbot-header">
+          <h2><span className="ai-box">AI</span>bek - Agent {activeAgent}</h2>
+          <div className="header-controls">
+            <div className="status-indicator">
+              <span className={`status-dot ${isLoading ? 'loading' : ''}`}></span>
+              {isLoading ? 'Typing...' : 'Online'}
+            </div>
+            <button 
+              className={`toggle-agent-button ${showAgentSelector ? 'active' : ''}`}
+              onClick={onToggleAgentSelector}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="chat-messages mobile-chat-messages">
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
+            >
+              <div className="message-content">
+                {message.sender === 'bot' ? (
+                  <ReactMarkdown>{message.text}</ReactMarkdown>
+                ) : (
+                  message.text
+                )}
+              </div>
+            </div>
+          ))}
+          {isLoading && (
+            <div className="message bot-message">
+              <div className="message-content">
+                <div className="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="chat-input mobile-chat-input">
+          <input
+            type="text"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder={isLoading ? "AIbek is typing..." : "Type your message here..."}
+            className="message-input"
+            disabled={isLoading}
+          />
+          <button 
+            onClick={handleSendMessage} 
+            className={`send-button ${isLoading ? 'disabled' : ''}`}
+            disabled={isLoading}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22,2 15,22 11,13 2,9"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`chatbot ${showAgentSelector ? 'compact' : ''}`}>
       <div className="chatbot-header">
