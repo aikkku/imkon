@@ -89,3 +89,7 @@ jspm_packages/
 
 # dotenv environment variables file
 .env
+
+# Google OAuth client secrets
+client_secret_*.json
+backend/client_secret_*.json

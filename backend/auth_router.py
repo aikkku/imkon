@@ -1,10 +1,15 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordRequestForm, HTTPBearer
+from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from database import get_db
 from user_models import User
 from auth_schemas import UserCreate, UserLogin, UserResponse, Token
 from auth_utils import Hash, create_access_token, verify_token
+from authlib.integrations.starlette_client import OAuth
+from starlette.config import Config
+import jwt
+import config as app_config
 
 router = APIRouter(
     prefix="/auth",
@@ -13,6 +18,17 @@ router = APIRouter(
 
 # OAuth2 scheme for Bearer tokens
 oauth2_scheme = HTTPBearer()
+
+# OAuth setup
+starlette_config = Config()  # No need to pass environ
+oauth = OAuth(starlette_config)
+oauth.register(
+    name='google',
+    client_id=app_config.GOOGLE_CLIENT_ID,
+    client_secret=app_config.GOOGLE_CLIENT_SECRET,
+    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
+    client_kwargs={'scope': 'openid email profile'},
+)
 
 @router.post("/signup", response_model=Token)
 def signup(user: UserCreate, db: Session = Depends(get_db)):
@@ -119,3 +135,58 @@ def get_current_user_bearer(token: str = Depends(oauth2_scheme), db: Session = D
         raise credentials_exception
     
     return user 
+
+@router.get('/google/login')
+async def google_login(request: Request):
+    redirect_uri = 'http://localhost:8000/auth/google/callback' # Replace with your actual redirect URI
+    return await oauth.google.authorize_redirect(request, redirect_uri)
+
+@router.get('/google/callback')
+async def google_callback(request: Request, db: Session = Depends(get_db)):
+    try:
+        token = await oauth.google.authorize_access_token(request)
+        print("Google token:", token)
+        user_info = token.get('userinfo')
+        if not user_info:
+            print("No userinfo in token:", token)
+            raise HTTPException(status_code=400, detail='Google login failed: No userinfo in token')
+        print("Google user_info:", user_info)
+    except Exception as e:
+        print("Google OAuth callback error:", e)
+        raise HTTPException(status_code=400, detail=f'Google login failed: {e}')
+    email = user_info.get('email')
+    name = user_info.get('name')
+    picture = user_info.get('picture')
+    if not email:
+        raise HTTPException(status_code=400, detail='No email from Google')
+    # Check if user exists, else create
+    user = db.query(User).filter(User.email == email).first()
+    if not user:
+        # Google users don't have a password, set a dummy one
+        user = User(email=email, password='google_oauth_no_password')
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    # Create or update user profile
+    from user_models import UserProfile
+    profile = db.query(UserProfile).filter(UserProfile.user_id == user.id).first()
+    if not profile:
+        profile = UserProfile(user_id=user.id)
+        db.add(profile)
+    profile.name = name
+    profile.telephone = ''
+    profile.address = ''
+    profile.city = ''
+    profile.gpa = ''
+    profile.ielts = ''
+    profile.sat = ''
+    profile.interests = ''
+    # Save Google picture as avatar if you want
+    profile.picture = picture if hasattr(profile, 'picture') else ''
+    db.commit()
+    # Issue JWT
+    from auth_utils import create_access_token
+    access_token = create_access_token(data={"sub": email})
+    # Redirect to frontend with token
+    redirect_url = f"http://localhost:3000/login?token={access_token}"
+    return RedirectResponse(redirect_url) 

@@ -1,3 +1,4 @@
+from starlette.middleware.sessions import SessionMiddleware
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -24,6 +25,9 @@ app = FastAPI(
     description="Backend API for IMKON University Applications Chatbot",
     version="1.0.0"
 )
+
+# Add SessionMiddleware for OAuth
+app.add_middleware(SessionMiddleware, secret_key="super-secret-session-key-1234567890")
 
 # Add CORS middleware
 app.add_middleware(

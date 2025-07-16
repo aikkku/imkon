@@ -19,6 +19,8 @@ import SubPage71 from './components/SubPage71';
 import SubPage72 from './components/SubPage72';
 import UniversityGrid from './components/UniversityGrid';
 import Page2 from './components/Page2';
+import { Routes, Route } from 'react-router-dom';
+import TermsOfUse from './components/TermsOfUse';
 
 function App() {
   const [activeButton, setActiveButton] = useState(2);
@@ -69,6 +71,14 @@ function App() {
     document.title = getPageTitle(activeButton);
   }, [activeButton]);
 
+  useEffect(() => {
+    // Check for token in localStorage on mount
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
@@ -97,6 +107,13 @@ function App() {
 
   const switchToLogin = () => {
     setShowSignup(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setIsLoggedIn(false);
+    setShowSignup(false); // Ensure login page is shown
   };
 
   const renderRightContent = () => {
@@ -229,21 +246,27 @@ function App() {
 
   return (
     <div className="App">
-      {!isLoggedIn ? (
-        showSignup ? (
-          <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
-        ) : (
-          <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
-        )
-      ) : (
-        <div className="container">
-          <Sidebar 
-            activeButton={activeButton} 
-            onButtonClick={handleButtonClick} 
-          />
-          {renderRightContent()}
-        </div>
-      )}
+      <Routes>
+        <Route path="/terms" element={<TermsOfUse />} />
+        <Route path="*" element={
+          !isLoggedIn ? (
+            showSignup ? (
+              <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+            ) : (
+              <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+            )
+          ) : (
+            <div className="container">
+              <Sidebar 
+                activeButton={activeButton} 
+                onButtonClick={handleButtonClick} 
+                onLogout={handleLogout}
+              />
+              {renderRightContent()}
+            </div>
+          )
+        } />
+      </Routes>
     </div>
   );
 }
