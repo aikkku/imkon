@@ -19,6 +19,14 @@ from auth_schemas import UserProfileSchema, UserProfileUpdateSchema
 from user_models import Base as UserBase
 from database import Base
 
+# Dependency to require paid user
+from user_models import User
+
+def require_paid_user(current_user: User = Depends(get_current_user_bearer)):
+    if not current_user.paid:
+        raise HTTPException(status_code=403, detail="Promocode required. Please apply a valid promocode.")
+    return current_user
+
 # Initialize FastAPI app
 app = FastAPI(
     title="IMKON Chatbot API",
@@ -87,7 +95,7 @@ async def health_check():
         }
 
 @app.post("/api/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest, current_user: User = Depends(get_current_user_bearer)):
+async def chat(request: ChatRequest, current_user: User = Depends(require_paid_user)):
     """Main chat endpoint with user authentication"""
     try:
         # Validate agent ID (currently only supporting agent 1)
@@ -119,7 +127,7 @@ async def chat(request: ChatRequest, current_user: User = Depends(get_current_us
                 "role": "system",
                 "content": profile_summary
             }] + conversation_history
-
+        
         # Generate conversation ID if not exists
         conversation_id = str(uuid.uuid4())
         
@@ -188,7 +196,7 @@ async def chat(request: ChatRequest, current_user: User = Depends(get_current_us
         raise HTTPException(status_code=500, detail=error_dict)
 
 @app.post("/api/university-suggestion")
-async def get_university_suggestion(request: dict, current_user: User = Depends(get_current_user_bearer)):
+async def get_university_suggestion(request: dict, current_user: User = Depends(require_paid_user)):
     """Get personalized university suggestion based on user preferences from database"""
     try:
         disliked_university = request.get("dislikedUniversity", {})
@@ -329,7 +337,7 @@ async def get_university_suggestion(request: dict, current_user: User = Depends(
         }
 
 @app.post("/api/analyze-preferences")
-async def analyze_user_preferences(request: dict, current_user: User = Depends(get_current_user_bearer)):
+async def analyze_user_preferences(request: dict, current_user: User = Depends(require_paid_user)):
     """Analyze chat history from database to extract user preferences"""
     try:
         print(f"Preferences analysis request received for user: {current_user.email}")
@@ -432,7 +440,7 @@ async def get_conversation_history(conversation_id: str):
     return conversations[conversation_id]
 
 @app.get("/api/chat/history")
-async def get_user_chat_history(current_user: User = Depends(get_current_user_bearer)):
+async def get_user_chat_history(current_user: User = Depends(require_paid_user)):
     """Get chat history for the current user"""
     try:
         db = SessionLocal()
@@ -463,7 +471,7 @@ async def get_user_chat_history(current_user: User = Depends(get_current_user_be
         raise HTTPException(status_code=500, detail=f"Error retrieving chat history: {str(e)}")
 
 @app.post("/api/chat/history/clear")
-async def clear_user_chat_history(current_user: User = Depends(get_current_user_bearer)):
+async def clear_user_chat_history(current_user: User = Depends(require_paid_user)):
     """Clear chat history for the current user"""
     try:
         db = SessionLocal()

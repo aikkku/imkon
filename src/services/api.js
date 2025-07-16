@@ -139,6 +139,16 @@ class ApiService {
       body: JSON.stringify(profile),
     });
   }
+
+  async applyPromocode(promocode, token) {
+    return this.makeRequest('/auth/promocode', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ promocode }),
+    });
+  }
 }
 
 const apiServiceInstance = new ApiService();

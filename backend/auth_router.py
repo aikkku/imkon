@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Request
+from fastapi import APIRouter, Depends, HTTPException, status, Request, Body
 from fastapi.security import OAuth2PasswordRequestForm, HTTPBearer
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
@@ -30,6 +30,28 @@ oauth.register(
     client_kwargs={'scope': 'openid email profile'},
 )
 
+# New function for Bearer token authentication
+def get_current_user_bearer(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    token_data = verify_token(token.credentials, credentials_exception)
+    user = db.query(User).filter(User.email == token_data.email).first()
+    if user is None:
+        raise credentials_exception
+    return user
+
+@router.get("/me", response_model=UserResponse)
+def get_current_user(current_user: User = Depends(get_current_user_bearer)):
+    return UserResponse(
+        id=current_user.id,
+        email=current_user.email,
+        created_at=current_user.created_at,
+        paid=current_user.paid
+)
+
 @router.post("/signup", response_model=Token)
 def signup(user: UserCreate, db: Session = Depends(get_db)):
     # Check if user already exists
@@ -46,7 +68,8 @@ def signup(user: UserCreate, db: Session = Depends(get_db)):
     # Create new user
     db_user = User(
         email=user.email,
-        password=hashed_password
+        password=hashed_password,
+        paid=False
     )
     
     db.add(db_user)
@@ -60,7 +83,8 @@ def signup(user: UserCreate, db: Session = Depends(get_db)):
     user_response = UserResponse(
         id=db_user.id,
         email=db_user.email,
-        created_at=db_user.created_at
+        created_at=db_user.created_at,
+        paid=db_user.paid
     )
     
     return {
@@ -89,7 +113,8 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
     user_response = UserResponse(
         id=user.id,
         email=user.email,
-        created_at=user.created_at
+        created_at=user.created_at,
+        paid=user.paid
     )
     
     return {
@@ -97,44 +122,6 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
         "token_type": "bearer",
         "user": user_response
     }
-
-@router.get("/me", response_model=UserResponse)
-def get_current_user(token: str = Depends(OAuth2PasswordRequestForm), db: Session = Depends(get_db)):
-    from auth_utils import verify_token
-    
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    
-    token_data = verify_token(token, credentials_exception)
-    user = db.query(User).filter(User.email == token_data.email).first()
-    
-    if user is None:
-        raise credentials_exception
-    
-    return UserResponse(
-        id=user.id,
-        email=user.email,
-        created_at=user.created_at
-    )
-
-# New function for Bearer token authentication
-def get_current_user_bearer(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    
-    token_data = verify_token(token.credentials, credentials_exception)
-    user = db.query(User).filter(User.email == token_data.email).first()
-    
-    if user is None:
-        raise credentials_exception
-    
-    return user 
 
 @router.get('/google/login')
 async def google_login(request: Request):
@@ -163,7 +150,7 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == email).first()
     if not user:
         # Google users don't have a password, set a dummy one
-        user = User(email=email, password='google_oauth_no_password')
+        user = User(email=email, password='google_oauth_no_password', paid=False)
         db.add(user)
         db.commit()
         db.refresh(user)
@@ -190,3 +177,21 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
     # Redirect to frontend with token
     redirect_url = f"http://localhost:3000/login?token={access_token}"
     return RedirectResponse(redirect_url) 
+
+@router.post("/promocode")
+def apply_promocode(
+    promocode: str = Body(..., embed=True),
+    current_user: User = Depends(get_current_user_bearer),
+    db: Session = Depends(get_db)
+):
+    print(f"[DEBUG] Received promocode: {promocode}")
+    if promocode != "TESTING2025":
+        raise HTTPException(status_code=400, detail="Invalid promocode")
+    user = db.query(User).filter(User.id == current_user.id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    if user.paid:
+        return {"success": True, "message": "Promocode already applied"}
+    user.paid = True
+    db.commit()
+    return {"success": True, "message": "Promocode applied successfully"} 

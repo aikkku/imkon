@@ -14,6 +14,7 @@ class UserResponse(BaseModel):
     id: int
     email: str
     created_at: datetime
+    paid: bool
     
     class Config:
         from_attributes = True

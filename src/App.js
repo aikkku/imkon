@@ -21,6 +21,7 @@ import UniversityGrid from './components/UniversityGrid';
 import Page2 from './components/Page2';
 import { Routes, Route } from 'react-router-dom';
 import TermsOfUse from './components/TermsOfUse';
+import PromocodeModal from './components/PromocodeModal';
 
 function App() {
   const [activeButton, setActiveButton] = useState(2);
@@ -30,6 +31,18 @@ function App() {
   const [showSignup, setShowSignup] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isPaid, setIsPaid] = useState(() => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        return JSON.parse(user).paid;
+      } catch {
+        return false;
+      }
+    }
+    return false;
+  });
+  const [showPromocodeModal, setShowPromocodeModal] = useState(false);
 
   // Update page title based on active button
   useEffect(() => {
@@ -76,8 +89,19 @@ function App() {
   useEffect(() => {
     // Check for token in localStorage on mount
     const token = localStorage.getItem('token');
-    if (token) {
-      setIsLoggedIn(true);
+    const user = localStorage.getItem('user');
+    if (token && user) {
+      setIsLoggedIn(true); // Ensure user stays logged in after refresh
+      try {
+        const parsedUser = JSON.parse(user);
+        setIsPaid(parsedUser.paid);
+        if (!parsedUser.paid) {
+          setShowPromocodeModal(true);
+        }
+      } catch {
+        setIsPaid(false);
+        setShowPromocodeModal(true);
+      }
     }
   }, []);
 
@@ -101,13 +125,23 @@ function App() {
   };
 
   const handleLogin = (response) => {
-    console.log('Login successful:', response);
     setIsLoggedIn(true);
+    setIsPaid(response.user.paid);
+    if (!response.user.paid) {
+      setShowPromocodeModal(true);
+    } else {
+      setShowPromocodeModal(false);
+    }
   };
 
   const handleSignup = (response) => {
-    console.log('Signup successful:', response);
     setIsLoggedIn(true);
+    setIsPaid(response.user.paid);
+    if (!response.user.paid) {
+      setShowPromocodeModal(true);
+    } else {
+      setShowPromocodeModal(false);
+    }
   };
 
   const switchToSignup = () => {
@@ -127,6 +161,20 @@ function App() {
 
   const handleHamburgerClick = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handlePromocodeSuccess = () => {
+    // Update paid status in state and localStorage
+    setIsPaid(true);
+    setShowPromocodeModal(false);
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        const parsedUser = JSON.parse(user);
+        parsedUser.paid = true;
+        localStorage.setItem('user', JSON.stringify(parsedUser));
+      } catch {}
+    }
   };
 
   const renderRightContent = () => {
@@ -258,71 +306,76 @@ function App() {
   };
 
   return (
-    isMobile ? (
-      <div className="app-mobile-container">
-        {/* Mobile Header */}
-        <div className="mobile-header">
-          <button className="hamburger-btn" onClick={handleHamburgerClick}>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-          </button>
-          <div className="mobile-logo">IMKON</div>
-          <button className="mobile-aibek-btn" onClick={() => handleButtonClick(1)}>
-            <span role="img" aria-label="Aibek">🤖</span> AIbek
-          </button>
-        </div>
-        {/* Sidebar (mobile overlay) */}
-        <Sidebar
-          activeButton={activeButton}
-          onButtonClick={handleButtonClick}
-          onLogout={handleLogout}
-          isMobileOpen={isSidebarOpen}
-          onCloseMobileSidebar={() => setIsSidebarOpen(false)}
-        />
-        {/* Main Content: use main-content class for mobile too */}
-        <div className="main-content">
-          <Routes>
-            <Route path="/terms" element={<TermsOfUse />} />
-            <Route path="*" element={
-              !isLoggedIn ? (
-                showSignup ? (
-                  <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+    <>
+      {isMobile ? (
+        <div className="app-mobile-container">
+          {/* Mobile Header */}
+          <div className="mobile-header">
+            <button className="hamburger-btn" onClick={handleHamburgerClick}>
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
+            </button>
+            <div className="mobile-logo">IMKON</div>
+            <button className="mobile-aibek-btn" onClick={() => handleButtonClick(1)}>
+              <span role="img" aria-label="Aibek">🤖</span> AIbek
+            </button>
+          </div>
+          {/* Sidebar (mobile overlay) */}
+          <Sidebar
+            activeButton={activeButton}
+            onButtonClick={handleButtonClick}
+            onLogout={handleLogout}
+            isMobileOpen={isSidebarOpen}
+            onCloseMobileSidebar={() => setIsSidebarOpen(false)}
+          />
+          {/* Main Content: use main-content class for mobile too */}
+          <div className="main-content">
+            <Routes>
+              <Route path="/terms" element={<TermsOfUse />} />
+              <Route path="*" element={
+                !isLoggedIn ? (
+        showSignup ? (
+          <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+        ) : (
+          <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+        )
                 ) : (
-                  <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+                  renderRightContent()
                 )
-              ) : (
-                renderRightContent()
-              )
-            } />
-          </Routes>
+              } />
+            </Routes>
+          </div>
         </div>
-      </div>
-    ) : (
-      <div className="container">
-        <Sidebar
-          activeButton={activeButton}
-          onButtonClick={handleButtonClick}
-          onLogout={handleLogout}
-        />
-        <div className="main-content">
-          <Routes>
-            <Route path="/terms" element={<TermsOfUse />} />
-            <Route path="*" element={
-              !isLoggedIn ? (
-                showSignup ? (
-                  <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+      ) : (
+        <div className="container">
+          <Sidebar 
+            activeButton={activeButton} 
+            onButtonClick={handleButtonClick} 
+            onLogout={handleLogout}
+          />
+          <div className="main-content">
+            <Routes>
+              <Route path="/terms" element={<TermsOfUse />} />
+              <Route path="*" element={
+                !isLoggedIn ? (
+                  showSignup ? (
+                    <Signup onSignup={handleSignup} onSwitchToLogin={switchToLogin} />
+                  ) : (
+                    <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+                  )
                 ) : (
-                  <Login onLogin={handleLogin} onSwitchToSignup={switchToSignup} />
+                  renderRightContent()
                 )
-              ) : (
-                renderRightContent()
-              )
-            } />
-          </Routes>
+              } />
+            </Routes>
+          </div>
         </div>
-      </div>
-    )
+      )}
+      {isLoggedIn && !isPaid && showPromocodeModal && (
+        <PromocodeModal onSuccess={handlePromocodeSuccess} />
+      )}
+    </>
   );
 }
 

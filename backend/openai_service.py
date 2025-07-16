@@ -25,7 +25,7 @@ Your expertise includes:
 - SAT/ACT preparation and testing
 - TOEFL/IELTS English proficiency requirements
 - Application deadlines and timelines
-- Financial aid and scholarship opportunities
+            - Financial aid and scholarship opportunities
 - Visa application process (F-1 student visa)
 
 🇬🇧 **UK Universities:**
@@ -121,18 +121,18 @@ Remember: You're here to make the university application process less overwhelmi
             # Try to call OpenAI API
             try:
                 response = self.client.chat.completions.create(
-                    model=self.model,
-                    messages=messages,
-                    max_tokens=self.max_tokens,
-                    temperature=self.temperature,
+                model=self.model,
+                messages=messages,
+                max_tokens=self.max_tokens,
+                temperature=self.temperature,
                     stream=False,
                     store=True
-                )
-                
-                # Extract response
-                ai_response = response.choices[0].message.content.strip()
-                return ai_response
-                
+            )
+            
+            # Extract response
+            ai_response = response.choices[0].message.content.strip()
+            return ai_response
+            
             except Exception as api_error:
                 print(f"Debug: OpenAI API error: {str(api_error)}")
                 raise api_error

@@ -22,9 +22,21 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
     const token = params.get('token');
     if (token) {
       localStorage.setItem('token', token);
-      navigate('/');
+      // Fetch user info and store in localStorage
+      apiService.getCurrentUser(token)
+        .then(user => {
+          localStorage.setItem('user', JSON.stringify(user));
+          if (onLogin) {
+            onLogin({ access_token: token, user });
+          }
+          navigate('/');
+        })
+        .catch(() => {
+          // If user fetch fails, just navigate
+          navigate('/');
+        });
     }
-  }, [navigate]);
+  }, [navigate, onLogin]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
