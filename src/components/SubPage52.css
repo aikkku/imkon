@@ -3,7 +3,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: none;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
+  max-width: 1200px;
+  margin: 0 auto 32px auto;
+  background: rgba(255,255,255,0.1);
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 
 .sub-page-52::before {
@@ -527,8 +534,13 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .sub-page-52 {
-    height: 600px;
-    margin-right: 10px;
+    height: auto;
+    min-height: 100vh;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
   }
   
   .sub-page-header {
@@ -591,7 +603,6 @@
 
 @media (min-width: 1200px) {
   .sub-page-52 {
-    height: 850px;
     border-radius: 30px;
   }
   
@@ -634,7 +645,6 @@
 
 @media (min-width: 1600px) {
   .sub-page-52 {
-    height: 900px;
     border-radius: 35px;
   }
   

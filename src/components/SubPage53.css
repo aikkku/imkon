@@ -1,6 +1,7 @@
 .sub-page-53 {
   flex: 1;
-  height: 750px;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.1);
@@ -10,7 +11,8 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
-  margin-right: 20px;
+  margin: 0 auto 32px auto;
+  max-width: 1200px;
 }
 
 .sub-page-53::before {
@@ -330,8 +332,9 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .sub-page-53 {
-    height: 600px;
-    margin-right: 10px;
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
   }
   
   .sub-page-header {

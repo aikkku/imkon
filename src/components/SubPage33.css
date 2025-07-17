@@ -1,16 +1,17 @@
 .sub-page-33 {
   flex: 1;
-  height: 750px;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  background: rgba(255,255,255,0.1);
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   position: relative;
   overflow: hidden;
-  margin-right: 20px;
+  max-width: 1200px;
+  margin: 0 auto 32px auto;
 }
 
 .sub-page-33::before {
@@ -55,11 +56,11 @@
 }
 
 .content-section {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 25px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 18px;
+  padding: 35px;
   transition: all 0.3s ease;
 }
 

@@ -1,6 +1,7 @@
 .chatbot {
   flex: 1;
-  height: 750px;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.1);
@@ -12,6 +13,7 @@
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   margin-right: 20px;
+  margin: 0 0 32px 0;
 }
 
 .chatbot.compact {
@@ -374,6 +376,11 @@
     min-height: 100vh;
     height: 100vh;
     overflow-x: hidden;
+  }
+  .chatbot {
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
   }
 }
 

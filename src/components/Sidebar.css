@@ -1,6 +1,7 @@
 .sidebar {
   width: 280px;
-  height: 750px;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   border-radius: 25px;
@@ -11,6 +12,8 @@
   position: relative;
   overflow: hidden;
   margin-right: 20px;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .sidebar::before {
@@ -528,5 +531,14 @@
   .main-content {
     margin-top: 0;
     padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    min-height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
