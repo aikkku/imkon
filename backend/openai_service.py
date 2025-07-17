@@ -105,7 +105,7 @@ Remember: You're here to make the university application process less overwhelmi
         
         return formatted_history
     
-    async def get_chat_response(self, message: str, conversation_history: List[Any] = None) -> str:
+    async def get_chat_response(self, message: str, conversation_history: List[Any] | None = None) -> str:
         """Get response from ChatGPT"""
         try:
             if conversation_history is None:
@@ -121,18 +121,17 @@ Remember: You're here to make the university application process less overwhelmi
             # Try to call OpenAI API
             try:
                 response = self.client.chat.completions.create(
-                model=self.model,
-                messages=messages,
-                max_tokens=self.max_tokens,
-                temperature=self.temperature,
-                    stream=False,
-                    store=True
-            )
-            
-            # Extract response
-            ai_response = response.choices[0].message.content.strip()
-            return ai_response
-            
+                    model=self.model,
+                    messages=messages,
+                    max_tokens=self.max_tokens,
+                    temperature=self.temperature,
+                    stream=False
+                )
+                
+                # Extract response
+                ai_response = response.choices[0].message.content.strip()
+                return ai_response
+                
             except Exception as api_error:
                 print(f"Debug: OpenAI API error: {str(api_error)}")
                 raise api_error

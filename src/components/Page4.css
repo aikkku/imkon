@@ -347,7 +347,12 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .page4 {
-    height: 600px;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    margin-right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .page4-header {
@@ -361,6 +366,7 @@
   .page4-content {
     padding: 20px;
     gap: 20px;
+    overflow-y: visible;
   }
   
   .content-section {

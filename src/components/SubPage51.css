@@ -875,11 +875,17 @@
 }
 
 .detail-label {
-  color: rgba(102, 126, 234, 0.8);
-  font-size: 14px;
-  font-weight: 600;
-  min-width: 80px;
-  flex-shrink: 0;
+  font-weight: 400;
+  color: inherit;
+}
+
+.detail-label.location,
+.detail-label.eligibility,
+.detail-label.scholarships,
+.detail-label.coverage,
+.detail-label.deadline {
+  color: #fff !important;
+  font-weight: 700 !important;
 }
 
 .detail-value {
@@ -1007,8 +1013,12 @@
 /* Responsive Design for UWC Elements */
 @media (max-width: 768px) {
   .sub-page-51 {
-    height: 600px;
-    margin-right: 10px;
+    height: auto;
+    min-height: 100vh;
+    margin-right: 0;
+    border-radius: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .sub-page-header {
@@ -1016,12 +1026,13 @@
   }
   
   .sub-page-header h2 {
-    font-size: 20px;
+    font-size: 28px;
   }
   
   .sub-page-content {
     padding: 20px;
     gap: 20px;
+    overflow-y: visible;
   }
   
   .content-section {
@@ -1029,11 +1040,12 @@
   }
   
   .content-section h3 {
-    font-size: 22px;
+    font-size: 24px;
   }
   
   .content-section p {
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 1.6;
   }
   
   .info-cards,

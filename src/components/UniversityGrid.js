@@ -243,29 +243,6 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
           <div className="header-text">
             <h2>🏫 Personalized University Recommendations</h2>
             <p>Based on your interests and preferences - like or dislike to refine suggestions</p>
-            {userPreferences.field && (
-              <div className="preferences-display">
-                <span className="preference-tag">Field: {userPreferences.field}</span>
-                {userPreferences.location && <span className="preference-tag">Location: {userPreferences.location}</span>}
-                {userPreferences.budget && <span className="preference-tag">Budget: {userPreferences.budget}</span>}
-              </div>
-            )}
-            <button 
-              className="manual-trigger-btn"
-              onClick={handleManualPreferencesExtraction}
-              style={{
-                marginTop: '10px',
-                padding: '8px 16px',
-                backgroundColor: '#007bff',
-                color: 'white',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontSize: '14px'
-              }}
-            >
-              🔄 Refresh Preferences
-            </button>
           </div>
           <button 
             className={`toggle-agent-button ${showAgentSelector ? 'active' : ''}`}
@@ -312,16 +289,10 @@ const UniversityGrid = ({ activeAgent, onToggleAgentSelector, showAgentSelector 
               
               <div className="university-actions">
                 <button 
-                  className="action-btn like-btn"
-                  onClick={() => handleUniversityAction(university.id, 'like')}
-                >
-                  👍
-                </button>
-                <button 
-                  className="action-btn dislike-btn"
+                  className="action-btn dislike-btn wide-glassy-dislike"
                   onClick={() => handleUniversityAction(university.id, 'dislike')}
                 >
-                  👎
+                  👎 Dislike
                 </button>
               </div>
             </div>

@@ -329,11 +329,11 @@
   }
   
   .page-header h2 {
-    font-size: 24px;
+    font-size: 28px;
   }
   
   .page-header p {
-    font-size: 14px;
+    font-size: 16px;
   }
   
   .page-content {
@@ -346,11 +346,12 @@
   }
   
   .content-section h3 {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .content-section p {
-    font-size: 11px;
+    font-size: 16px;
+    line-height: 1.6;
   }
   
   .stats-grid {

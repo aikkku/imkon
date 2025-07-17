@@ -309,18 +309,20 @@ function App() {
     <>
       {isMobile ? (
         <div className="app-mobile-container">
-          {/* Mobile Header */}
-          <div className="mobile-header">
-            <button className="hamburger-btn" onClick={handleHamburgerClick}>
-              <span className="hamburger-line"></span>
-              <span className="hamburger-line"></span>
-              <span className="hamburger-line"></span>
-            </button>
-            <div className="mobile-logo">IMKON</div>
-            <button className="mobile-aibek-btn" onClick={() => handleButtonClick(1)}>
-              <span role="img" aria-label="Aibek">🤖</span> AIbek
-            </button>
-          </div>
+          {/* Mobile Header - only show when logged in */}
+          {isLoggedIn && (
+            <div className="mobile-header">
+              <button className="hamburger-btn" onClick={handleHamburgerClick}>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+              </button>
+              <div className="mobile-logo">IMKON</div>
+              <button className="mobile-aibek-btn" onClick={() => handleButtonClick(1)}>
+                <span className="ai-part">AI</span><span className="bek-part">bek</span>
+              </button>
+            </div>
+          )}
           {/* Sidebar (mobile overlay) */}
           <Sidebar
             activeButton={activeButton}

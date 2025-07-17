@@ -89,7 +89,7 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
     return (
       <div className="chatbot-mobile-wrapper">
         <div className="chatbot-header">
-          <h2><span className="ai-box">AI</span>bek - Agent {activeAgent}</h2>
+          <h2><span className="ai-box">AI</span>BEK</h2>
           <div className="header-controls">
             <div className="status-indicator">
               <span className={`status-dot ${isLoading ? 'loading' : ''}`}></span>
@@ -163,7 +163,7 @@ const Chatbot = ({ activeButton, activeAgent, onToggleAgentSelector, showAgentSe
   return (
     <div className={`chatbot ${showAgentSelector ? 'compact' : ''}`}>
       <div className="chatbot-header">
-        <h2><span className="ai-box">AI</span>bek - Agent {activeAgent}</h2>
+        <h2><span className="ai-part">AI</span><span className="bek-part">BEK</span></h2>
         <div className="header-controls">
           <div className="status-indicator">
             <span className={`status-dot ${isLoading ? 'loading' : ''}`}></span>

@@ -13,7 +13,7 @@ const SubPage51 = ({ activeButton }) => {
         <div className="sub-page-content">
           {/* All content-section blocks go here, copy from inside .sub-page-content */}
           <div className="content-section">
-            <h3>About UWC Uzbekistan</h3>
+            <h3>About UWC</h3>
             <p>United World Colleges (UWC) is a global education movement that makes education a force to unite people, nations and cultures for peace and a sustainable future. UWC Uzbekistan is the national committee that selects students from Uzbekistan to attend UWC schools worldwide.</p>
           </div>
 
@@ -213,23 +213,23 @@ const SubPage51 = ({ activeButton }) => {
                   <p>Full scholarship opportunity for Uzbek students to attend one of the 18 UWC schools worldwide</p>
                   <div className="scholarship-details">
                     <div className="detail-row">
-                      <span className="detail-label">📍 Location:</span>
+                      <span className="detail-label location">📍 Location:</span>
                       <span className="detail-value">One of the 18 UWC Schools around the world</span>
                     </div>
                     <div className="detail-row">
-                      <span className="detail-label">👥 Eligibility:</span>
+                      <span className="detail-label eligibility">👥 Eligibility:</span>
                       <span className="detail-value">9-11th grade or lyceum students in Uzbekistan, born between Sep 2008 - Aug 2010</span>
                     </div>
                     <div className="detail-row">
-                      <span className="detail-label">🏆 Scholarships:</span>
+                      <span className="detail-label scholarships">🏆 Scholarships:</span>
                       <span className="detail-value">Varies annually, depending on candidate quality</span>
                     </div>
                     <div className="detail-row">
-                      <span className="detail-label">💰 Coverage:</span>
+                      <span className="detail-label coverage">💰 Coverage:</span>
                       <span className="detail-value">Two years (11-12th grade) of study at a UWC school</span>
                     </div>
                     <div className="detail-row">
-                      <span className="detail-label">🗓 Deadline:</span>
+                      <span className="detail-label deadline">🗓 Deadline:</span>
                       <span className="detail-value">November 2025</span>
                     </div>
                   </div>
@@ -741,23 +741,23 @@ const SubPage51 = ({ activeButton }) => {
                 <p>Full scholarship opportunity for Uzbek students to attend one of the 18 UWC schools worldwide</p>
                 <div className="scholarship-details">
                   <div className="detail-row">
-                    <span className="detail-label">📍 Location:</span>
+                    <span className="detail-label location">📍 Location:</span>
                     <span className="detail-value">One of the 18 UWC Schools around the world</span>
                   </div>
                   <div className="detail-row">
-                    <span className="detail-label">👥 Eligibility:</span>
+                    <span className="detail-label eligibility">👥 Eligibility:</span>
                     <span className="detail-value">9-11th grade or lyceum students in Uzbekistan, born between Sep 2008 - Aug 2010</span>
                   </div>
                   <div className="detail-row">
-                    <span className="detail-label">🏆 Scholarships:</span>
+                    <span className="detail-label scholarships">🏆 Scholarships:</span>
                     <span className="detail-value">Varies annually, depending on candidate quality</span>
                   </div>
                   <div className="detail-row">
-                    <span className="detail-label">💰 Coverage:</span>
+                    <span className="detail-label coverage">💰 Coverage:</span>
                     <span className="detail-value">Two years (11-12th grade) of study at a UWC school</span>
                   </div>
                   <div className="detail-row">
-                    <span className="detail-label">🗓 Deadline:</span>
+                    <span className="detail-label deadline">🗓 Deadline:</span>
                     <span className="detail-value">November 2025</span>
                   </div>
                 </div>

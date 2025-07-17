@@ -1,16 +1,9 @@
 .sub-page-52 {
   flex: 1;
-  height: 750px;
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  position: relative;
-  overflow: hidden;
-  margin-right: 20px;
+  width: 100%;
+  max-width: none;
 }
 
 .sub-page-52::before {

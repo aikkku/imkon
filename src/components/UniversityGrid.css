@@ -9,6 +9,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  overflow-y: hidden; /* Prevent vertical scroll */
 }
 
 .university-header {
@@ -125,7 +126,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
-  overflow-y: auto;
+  overflow-y: hidden; /* Prevent vertical scroll */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -285,16 +286,59 @@
   box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
 }
 
+.wide-glassy-dislike {
+  min-width: 120px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 4px 16px rgba(102,126,234,0.08);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border: 1.5px solid #4a148c;
+  transition: background 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+.wide-glassy-dislike:hover {
+  background: rgba(74,20,140,0.18);
+  border-color: #6a1b9a;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
-  .university-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    padding: 8px;
-    gap: 8px;
+  .university-grid-container {
+    background: none;
+    border: none;
+    box-shadow: none;
   }
-  
   .university-header {
-    padding: 15px;
+    border-radius: 0;
+    margin: 0;
+    padding: 10px 0 0 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  .university-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+    padding: 0 0 16px 0;
+    gap: 0;
+  }
+  .university-card {
+    border-radius: 0;
+    margin: 0;
+    width: 100vw;
+    min-width: 100vw;
+    box-shadow: none;
   }
   
   .header-content {
@@ -328,6 +372,12 @@
     width: 28px;
     height: 28px;
     font-size: 12px;
+  }
+
+  .wide-glassy-dislike {
+    min-width: 90px;
+    font-size: 13px;
+    padding: 8px 0;
   }
 }
 
@@ -370,5 +420,24 @@
     width: 24px;
     height: 24px;
     font-size: 10px;
+  }
+} 
+
+@media (max-width: 768px) {
+  .university-grid {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 16px 0;
+    align-items: center;
+  }
+  .university-card {
+    width: 92vw;
+    max-width: 420px;
+    min-width: unset;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(102,126,234,0.08);
   }
 } 

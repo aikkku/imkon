@@ -403,55 +403,50 @@ const SubPage31 = ({ activeButton }) => {
           </div>
         </div>
 
-        <div className="content-section tips-section">
+        <div className="content-section">
           <h3>Key Tips & Strategies</h3>
-          <div className="tips-grid">
-            <div className="tip-card">
-              <div className="tip-header">
-                <div className="tip-icon">🚀</div>
+          <div className="app-components">
+            <div className="component-card">
+              <div className="component-icon">🚀</div>
+              <div className="component-info">
                 <h4>Start Early</h4>
+                <p>Begin working on your personal statement and supplements before August 1st</p>
               </div>
-              <p>Begin working on your personal statement and supplements before August 1st</p>
             </div>
-            
-            <div className="tip-card">
-              <div className="tip-header">
-                <div className="tip-icon">📝</div>
+            <div className="component-card">
+              <div className="component-icon">📝</div>
+              <div className="component-info">
                 <h4>Super Essay Approach</h4>
+                <p>Combine multiple schools' prompts to save dozens of hours of writing</p>
               </div>
-              <p>Combine multiple schools' prompts to save dozens of hours of writing</p>
             </div>
-            
-            <div className="tip-card">
-              <div className="tip-header">
-                <div className="tip-icon">💰</div>
+            <div className="component-card">
+              <div className="component-icon">💰</div>
+              <div className="component-info">
                 <h4>Fee Waivers</h4>
+                <p>Almost half of Common App colleges don't charge application fees</p>
               </div>
-              <p>Almost half of Common App colleges don't charge application fees</p>
             </div>
-            
-            <div className="tip-card">
-              <div className="tip-header">
-                <div className="tip-icon">🔍</div>
+            <div className="component-card">
+              <div className="component-icon">🔍</div>
+              <div className="component-info">
                 <h4>Check Requirements</h4>
+                <p>Each college may have different supplemental essay and recommendation requirements</p>
               </div>
-              <p>Each college may have different supplemental essay and recommendation requirements</p>
             </div>
-            
-            <div className="tip-card">
-              <div className="tip-header">
-                <div className="tip-icon">👥</div>
+            <div className="component-card">
+              <div className="component-icon">👥</div>
+              <div className="component-info">
                 <h4>Recommendation Process</h4>
+                <p>One teacher's recommendation can be submitted to multiple schools. Determine which college requires the highest number</p>
               </div>
-              <p>One teacher's recommendation can be submitted to multiple schools. Determine which college requires the highest number</p>
             </div>
-            
-            <div className="tip-card">
-              <div className="tip-header">
-                <div className="tip-icon">📊</div>
+            <div className="component-card">
+              <div className="component-icon">📊</div>
+              <div className="component-info">
                 <h4>Dashboard Tracking</h4>
+                <p>Red Dash = not required, Yellow Circle = in progress, Green Check = submitted</p>
               </div>
-              <p>Red Dash = not required, Yellow Circle = in progress, Green Check = submitted</p>
             </div>
           </div>
         </div>

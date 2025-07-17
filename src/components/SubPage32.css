@@ -248,6 +248,22 @@
   line-height: 1.4;
 }
 
+a, .link, .content-section a {
+  color: #4a148c !important;
+  text-decoration: underline;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+  transition: color 0.2s;
+}
+
+a:hover, .link:hover, .content-section a:hover {
+  color: #6a1b9a !important;
+}
+
+a:visited, .link:visited, .content-section a:visited {
+  color: #311b92 !important;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .sub-page-32 {
@@ -291,6 +307,14 @@
   
   .team-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tip-box {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
   }
 }
 

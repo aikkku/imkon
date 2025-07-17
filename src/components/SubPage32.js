@@ -93,12 +93,42 @@ const SubPage32 = ({ activeButton }) => {
 
         <div className="content-section">
           <h3>Application Tips</h3>
-          <div className="tip-box">
-            <p><strong>🎯 Start Early:</strong> Most scholarship applications open 6-12 months before the academic year begins.</p>
-            <p><strong>📝 Strong Essays:</strong> Write compelling personal statements that highlight your unique background and achievements.</p>
-            <p><strong>📊 Academic Excellence:</strong> Maintain strong grades and test scores to qualify for merit-based scholarships.</p>
-            <p><strong>🌍 Leadership Experience:</strong> Demonstrate leadership, community service, and extracurricular involvement.</p>
-            <p><strong>📋 Complete Applications:</strong> Submit all required documents well before deadlines.</p>
+          <div className="app-components">
+            <div className="component-card">
+              <div className="component-icon">🎯</div>
+              <div className="component-info">
+                <h4>Start Early</h4>
+                <p>Most scholarship applications open 6-12 months before the academic year begins.</p>
+              </div>
+            </div>
+            <div className="component-card">
+              <div className="component-icon">📝</div>
+              <div className="component-info">
+                <h4>Strong Essays</h4>
+                <p>Write compelling personal statements that highlight your unique background and achievements.</p>
+              </div>
+            </div>
+            <div className="component-card">
+              <div className="component-icon">📊</div>
+              <div className="component-info">
+                <h4>Academic Excellence</h4>
+                <p>Maintain strong grades and test scores to qualify for merit-based scholarships.</p>
+              </div>
+            </div>
+            <div className="component-card">
+              <div className="component-icon">🌍</div>
+              <div className="component-info">
+                <h4>Leadership Experience</h4>
+                <p>Demonstrate leadership, community service, and extracurricular involvement.</p>
+              </div>
+            </div>
+            <div className="component-card">
+              <div className="component-icon">📋</div>
+              <div className="component-info">
+                <h4>Complete Applications</h4>
+                <p>Submit all required documents well before deadlines.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
