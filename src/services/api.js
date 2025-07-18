@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://44.222.208.199';
+const API_BASE_URL = 'https://backend-for-lazy-people-2dbb64065880.herokuapp.com';
 
 class ApiService {
   constructor() {
