@@ -7,3 +7,5 @@ Javlonbek:
  - frontend tugatish
  - mobile adaptation
  - main page decoration
+
+https://backend-for-lazy-people-2dbb64065880.herokuapp.com/
