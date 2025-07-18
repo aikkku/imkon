@@ -17,6 +17,7 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
 
   const navigate = useNavigate();
 
+  // Handle Google OAuth callback: if token is present in URL, store it, fetch user info, and update login state
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const token = params.get('token');
@@ -73,7 +74,7 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://44.222.208.199/auth/google/login';
+    window.location.href = 'https://backend-for-lazy-people-2dbb64065880.herokuapp.com/auth/google/login';
   };
 
   return (
