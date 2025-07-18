@@ -73,7 +73,7 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:8000/auth/google/login';
+    window.location.href = 'http://44.222.208.199/auth/google/login';
   };
 
   return (
