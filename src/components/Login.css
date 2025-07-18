@@ -328,8 +328,11 @@
 /* Responsive design */
 @media (max-width: 480px) {
   .login-card {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
     padding: 30px 25px;
     margin: 10px;
+    margin-bottom: 100px;
   }
   
   .logo-section {
