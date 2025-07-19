@@ -28,6 +28,16 @@ class ApiService {
         data = await response.text();
       }
       if (!response.ok) {
+        // Detect token expiry or unauthorized
+        if (
+          response.status === 401 ||
+          response.status === 403 ||
+          (typeof data === 'object' && (data.detail || data.error || data.message || '').toLowerCase().includes('token'))
+        ) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          window.location.reload();
+        }
         throw new Error(data.detail || data.error || data.message || `HTTP error! status: ${response.status}`);
       }
       return data;
