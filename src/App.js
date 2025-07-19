@@ -217,7 +217,7 @@ function App() {
           </div>
         );
       case 2:
-        return <Page2 activeButton={activeButton} />;
+        return <Page2 activeButton={activeButton} onButtonClick={handleButtonClick} />;
       case 4:
         return <Page4 activeButton={activeButton} />;
       case 31:

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Page2.css';
 import ApiService from '../services/api';
 
-const Page2 = ({ activeButton }) => {
+const Page2 = ({ activeButton, onButtonClick }) => {
   const [profile, setProfile] = useState({
     name: '',
     telephone: '',
@@ -60,28 +60,61 @@ const Page2 = ({ activeButton }) => {
       <>
         <div className="page-header">
           <h2>Welcome to IMKON</h2>
-          <p>Your personal study abroad assistant</p>
+          <p>Your AI-powered study abroad companion</p>
         </div>
         <div className="page-content">
           <div className="content-section home-info-section">
-            <h3>Welcome to IMKON</h3>
-            <p><strong>IMKON</strong> is your all-in-one platform for international education opportunities, scholarships, and application support. Our mission is to empower students from Uzbekistan and beyond to achieve their dreams of studying abroad by providing clear, reliable, and up-to-date information.</p>
+            <h3>🚀 Your AI-Powered Gateway to Global Education</h3>
+            
+            <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px' }}>
+              <button 
+                style={{
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  border: 'none',
+                  borderRadius: '15px',
+                  padding: '18px 40px',
+                  fontSize: '18px',
+                  fontWeight: '600',
+                  color: 'white',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px'
+                }}
+                onClick={() => onButtonClick && onButtonClick(1)}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-3px)';
+                  e.target.style.boxShadow = '0 12px 35px rgba(102, 126, 234, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+                }}
+              >
+                🤖 Try AIbek Now
+              </button>
+            </div>
+            
+            <p><strong>IMKON</strong> revolutionizes your international education journey with cutting-edge AI technology. Our intelligent platform combines the power of artificial intelligence with comprehensive resources to transform how students from Uzbekistan and beyond discover, apply to, and succeed in global education opportunities.</p>
             <ul>
-              <li><strong>Personalized Guidance:</strong> Create your student profile to get tailored advice and track your progress.</li>
-              <li><strong>Program Information:</strong> Explore detailed guides on UWC, FLEX, US universities, and more.</li>
-              <li><strong>Application Tips:</strong> Access step-by-step instructions, essay writing help, and interview preparation.</li>
-              <li><strong>Scholarships & Financial Aid:</strong> Find opportunities and learn how to maximize your chances.</li>
-              <li><strong>Community Support:</strong> Connect with alumni, mentors, and fellow applicants.</li>
+              <li><strong>🤖 AI-Powered Personalization:</strong> Our advanced AI analyzes your profile and preferences to deliver hyper-personalized university recommendations, scholarship matches, and application strategies.</li>
+              <li><strong>💬 Intelligent Chat Assistant:</strong> Meet <strong>AIbek</strong>, your 24/7 AI companion who answers questions, provides instant guidance, and helps you navigate complex application processes.</li>
+              <li><strong>🎯 Smart Program Matching:</strong> AI algorithms match you with the perfect UWC, FLEX, and university programs based on your academic profile and career goals.</li>
+              <li><strong>✍️ AI-Enhanced Essay Support:</strong> Get intelligent feedback on your personal statements and essays with our AI-powered writing assistant.</li>
+              <li><strong>💰 Intelligent Scholarship Discovery:</strong> Our AI scans thousands of opportunities to find scholarships that match your unique profile and background.</li>
             </ul>
-            <p><strong>Who is IMKON for?</strong><br/>
-            - High school students seeking international education<br/>
-            - Parents and counselors supporting students<br/>
-            - Anyone interested in global study opportunities</p>
-            <p><strong>How to Use IMKON:</strong><br/>
-            1. Register and complete your student profile.<br/>
-            2. Browse program sections for requirements and deadlines.<br/>
-            3. Use our resources to prepare your application materials.<br/>
-            4. Reach out for help or join our community for support.<br/>
+            <p><strong>🎓 Who is IMKON for?</strong><br/>
+            - Ambitious high school students ready to conquer global education<br/>
+            - Forward-thinking parents and counselors embracing AI-powered guidance<br/>
+            - Anyone seeking a smarter, more efficient path to international education</p>
+            <p><strong>🚀 How to Harness IMKON's AI Power:</strong><br/>
+            1. Create your smart profile and let our AI understand your goals.<br/>
+            2. Chat with <strong>AIbek</strong> for instant, intelligent guidance on any topic.<br/>
+            3. Explore AI-curated university and program recommendations.<br/>
+            4. Use our AI tools to perfect your applications and essays.<br/>
+            5. Connect with our community and share your success story.<br/>
             </p>
           </div>
           <div className="profile-card glass-card">
@@ -128,28 +161,61 @@ const Page2 = ({ activeButton }) => {
     <div className="page-2">
       <div className="page-header">
         <h2>Welcome to IMKON</h2>
-        <p>Your personal study abroad assistant</p>
+        <p>Your AI-powered study abroad companion</p>
       </div>
       <div className="page-content">
         <div className="content-section home-info-section">
-          <h3>Welcome to IMKON</h3>
-          <p><strong>IMKON</strong> is your all-in-one platform for international education opportunities, scholarships, and application support. Our mission is to empower students from Uzbekistan and beyond to achieve their dreams of studying abroad by providing clear, reliable, and up-to-date information.</p>
+          <h3>🚀 Your AI-Powered Gateway to Global Education</h3>
+          
+          <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px' }}>
+            <button 
+              style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                border: 'none',
+                borderRadius: '15px',
+                padding: '18px 40px',
+                fontSize: '18px',
+                fontWeight: '600',
+                color: 'white',
+                cursor: 'pointer',
+                boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}
+              onClick={() => onButtonClick && onButtonClick(1)}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 12px 35px rgba(102, 126, 234, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+              }}
+            >
+              🤖 Try AIbek Now
+            </button>
+          </div>
+          
+          <p><strong>IMKON</strong> revolutionizes your international education journey with cutting-edge AI technology. Our intelligent platform combines the power of artificial intelligence with comprehensive resources to transform how students from Uzbekistan and beyond discover, apply to, and succeed in global education opportunities.</p>
           <ul>
-            <li><strong>Personalized Guidance:</strong> Create your student profile to get tailored advice and track your progress.</li>
-            <li><strong>Program Information:</strong> Explore detailed guides on UWC, FLEX, US universities, and more.</li>
-            <li><strong>Application Tips:</strong> Access step-by-step instructions, essay writing help, and interview preparation.</li>
-            <li><strong>Scholarships & Financial Aid:</strong> Find opportunities and learn how to maximize your chances.</li>
-            <li><strong>Community Support:</strong> Connect with alumni, mentors, and fellow applicants.</li>
+            <li><strong>🤖 AI-Powered Personalization:</strong> Our advanced AI analyzes your profile and preferences to deliver hyper-personalized university recommendations, scholarship matches, and application strategies.</li>
+            <li><strong>💬 Intelligent Chat Assistant:</strong> Meet <strong>AIbek</strong>, your 24/7 AI companion who answers questions, provides instant guidance, and helps you navigate complex application processes.</li>
+            <li><strong>🎯 Smart Program Matching:</strong> AI algorithms match you with the perfect UWC, FLEX, and university programs based on your academic profile and career goals.</li>
+            <li><strong>✍️ AI-Enhanced Essay Support:</strong> Get intelligent feedback on your personal statements and essays with our AI-powered writing assistant.</li>
+            <li><strong>💰 Intelligent Scholarship Discovery:</strong> Our AI scans thousands of opportunities to find scholarships that match your unique profile and background.</li>
           </ul>
-          <p><strong>Who is IMKON for?</strong><br/>
-          - High school students seeking international education<br/>
-          - Parents and counselors supporting students<br/>
-          - Anyone interested in global study opportunities</p>
-          <p><strong>How to Use IMKON:</strong><br/>
-          1. Register and complete your student profile.<br/>
-          2. Browse program sections for requirements and deadlines.<br/>
-          3. Use our resources to prepare your application materials.<br/>
-          4. Reach out for help or join our community for support.<br/>
+          <p><strong>🎓 Who is IMKON for?</strong><br/>
+          - Ambitious high school students ready to conquer global education<br/>
+          - Forward-thinking parents and counselors embracing AI-powered guidance<br/>
+          - Anyone seeking a smarter, more efficient path to international education</p>
+          <p><strong>🚀 How to Harness IMKON's AI Power:</strong><br/>
+          1. Create your smart profile and let our AI understand your goals.<br/>
+          2. Chat with <strong>AIbek</strong> for instant, intelligent guidance on any topic.<br/>
+          3. Explore AI-curated university and program recommendations.<br/>
+          4. Use our AI tools to perfect your applications and essays.<br/>
+          5. Connect with our community and share your success story.<br/>
           </p>
         </div>
         <div className="profile-card glass-card">
