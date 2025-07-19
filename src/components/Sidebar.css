@@ -327,6 +327,8 @@
   
   .sidebar-content {
     padding: 20px 15px;
+    max-height: 73vh;
+    overflow-y: scroll;
   }
   
   .sidebar-button {
@@ -350,7 +352,6 @@
 
 @media (min-width: 1200px) {
   .sidebar {
-    height: 850px;
     border-radius: 30px;
   }
   
@@ -531,6 +532,7 @@
   .main-content {
     margin-top: 0;
     padding: 2rem;
+    padding-bottom: 0;
   }
 }
 
