@@ -196,7 +196,7 @@
 
 .requirement-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -240,14 +240,14 @@
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   flex-shrink: 0;
 }
 
 .step-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -518,7 +518,7 @@
 
 .stat-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -561,7 +561,7 @@
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .content-section p {
@@ -597,7 +597,7 @@
   .stat-icon {
     width: 30px;
     height: 30px;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -627,7 +627,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .program-details {
@@ -657,7 +657,7 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .program-details {

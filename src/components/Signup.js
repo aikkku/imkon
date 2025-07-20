@@ -246,7 +246,7 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
             padding: '10px 0',
             border: 'none',
             borderRadius: '8px',
-            background: 'rgba(255,255,255,0.15)',
+            background: 'rgba(255,255,255,0.55)',
             boxShadow: '0 4px 16px rgba(102,126,234,0.08)',
             color: '#222',
             fontWeight: 600,

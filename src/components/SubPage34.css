@@ -82,7 +82,7 @@
 
 .content-section p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   margin: 0 0 15px 0;
   font-weight: 300;
@@ -200,14 +200,14 @@
 
 .update-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .update-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 10px 0;
   line-height: 1.4;
   font-weight: 300;
@@ -221,13 +221,13 @@
 
 .update-time {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .update-author {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.05);
   padding: 2px 8px;
@@ -269,7 +269,7 @@
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .content-section p {
@@ -313,7 +313,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
   .category-info h4 {
     font-size: 17px !important;
@@ -338,7 +338,7 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
   .category-info h4 {
     font-size: 17px !important;

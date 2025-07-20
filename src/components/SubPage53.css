@@ -155,7 +155,7 @@
 
 .detail-item {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.05);
   padding: 4px 8px;
@@ -203,7 +203,7 @@
 
 .regional-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
@@ -223,7 +223,7 @@
 
 .tag {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   background: rgba(102, 126, 234, 0.2);
   padding: 4px 8px;
@@ -269,7 +269,7 @@
 
 .tip-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -355,7 +355,7 @@
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .content-section p {
@@ -406,13 +406,13 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
   .program-content h4 {
     font-size: 15px;
   }
   .program-content p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -431,7 +431,7 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
   .program-content h4 {
     font-size: 17px !important;

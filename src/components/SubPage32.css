@@ -82,7 +82,7 @@
 
 .content-section p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   margin: 0 0 15px 0;
   font-weight: 300;
@@ -134,14 +134,14 @@
 
 .member-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .member-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
   line-height: 1.4;
@@ -150,7 +150,7 @@
 .member-status {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -214,14 +214,14 @@
 
 .activity-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .activity-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 5px 0;
   font-weight: 300;
   line-height: 1.4;
@@ -229,7 +229,7 @@
 
 .activity-time {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -250,7 +250,7 @@
 }
 
 a, .link, .content-section a {
-  color: #4a148c !important;
+  color: #c494ff !important;
   text-decoration: underline;
   font-weight: 600;
   text-shadow: 0 1px 4px rgba(0,0,0,0.18);
@@ -258,11 +258,11 @@ a, .link, .content-section a {
 }
 
 a:hover, .link:hover, .content-section a:hover {
-  color: #6a1b9a !important;
+  color: #ffffff !important;
 }
 
 a:visited, .link:visited, .content-section a:visited {
-  color: #311b92 !important;
+  color: #ababab !important;
 }
 
 /* Responsive design */
@@ -298,7 +298,7 @@ a:visited, .link:visited, .content-section a:visited {
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .content-section p {
@@ -344,7 +344,7 @@ a:visited, .link:visited, .content-section a:visited {
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
   .info-content h4,
   .component-info h4 {
@@ -371,7 +371,7 @@ a:visited, .link:visited, .content-section a:visited {
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
   .info-content h4,
   .component-info h4 {

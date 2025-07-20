@@ -59,7 +59,7 @@ const Page2 = ({ activeButton, onButtonClick }) => {
     return (
       <>
         <div className="page-header">
-          <h2>Welcome to IMKON</h2>
+          <h2>Welcome to <span style={{background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", border: 'none', borderRadius: '15px', padding: '0px 10px'}}> IMKON </span></h2>
           <p>Your AI-powered study abroad companion</p>
         </div>
         <div className="page-content">
@@ -160,7 +160,7 @@ const Page2 = ({ activeButton, onButtonClick }) => {
   return (
     <div className="page-2">
       <div className="page-header">
-        <h2>Welcome to IMKON</h2>
+        <h2>Welcome to <span style={{background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", border: 'none', borderRadius: '15px', padding: '0px 10px'}}> IMKON </span></h2>
         <p>Your AI-powered study abroad companion</p>
       </div>
       <div className="page-content">
@@ -178,7 +178,7 @@ const Page2 = ({ activeButton, onButtonClick }) => {
                 fontWeight: '600',
                 color: 'white',
                 cursor: 'pointer',
-                boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
+                boxShadow: '0 8px 25px rgba(164, 164, 164, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -187,11 +187,11 @@ const Page2 = ({ activeButton, onButtonClick }) => {
               onClick={() => onButtonClick && onButtonClick(1)}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-3px)';
-                e.target.style.boxShadow = '0 12px 35px rgba(102, 126, 234, 0.4)';
+                e.target.style.boxShadow = '0 12px 35px rgba(255, 255, 255, 0.4)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+                e.target.style.boxShadow = '0 8px 25px rgba(164, 164, 164, 0.3)';
               }}
             >
               🤖 Try AIbek Now

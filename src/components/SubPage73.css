@@ -181,14 +181,14 @@
 
 .example-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .example-tag {
   color: rgba(102, 126, 234, 0.8);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   background: rgba(102, 126, 234, 0.1);
   padding: 2px 8px;
@@ -211,7 +211,7 @@
 
 .detail {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.05);
   padding: 4px 8px;
@@ -261,14 +261,14 @@
 
 .university-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .university-tag {
   color: rgba(52, 211, 153, 0.8);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   background: rgba(52, 211, 153, 0.1);
   padding: 2px 8px;
@@ -325,7 +325,7 @@
 
 .analysis-header h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0;
 }
@@ -395,7 +395,7 @@
 
 .prompt-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -431,7 +431,7 @@
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .content-section p {
@@ -478,7 +478,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -497,6 +497,6 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
 } 

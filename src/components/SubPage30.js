@@ -2,6 +2,8 @@ import React from 'react';
 import './SubPage30.css';
 
 const SubPage30 = () => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   return (
     <div className="sub-page-30">
       <div className="sub-page-header">

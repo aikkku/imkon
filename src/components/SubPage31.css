@@ -93,7 +93,7 @@
 
 .content-section p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   margin: 0 0 15px 0;
   font-weight: 300;
@@ -145,14 +145,14 @@
 
 .component-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .component-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
   line-height: 1.4;
@@ -161,7 +161,7 @@
 .component-status {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -316,14 +316,14 @@
 
 .timeline-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .timeline-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -380,7 +380,7 @@
 
 .deadline-type-cell h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0;
 }
@@ -443,14 +443,14 @@
 
 .step-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .step-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
   line-height: 1.4;
@@ -459,7 +459,7 @@
 .step-status {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -533,14 +533,14 @@
 
 .faq-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .faq-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -692,14 +692,14 @@
 
 .university-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .university-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
   line-height: 1.4;
@@ -714,7 +714,7 @@
 .university-status {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -796,7 +796,7 @@
 
 .deadline-day {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1;
 }
@@ -815,14 +815,14 @@
 
 .deadline-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .deadline-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -831,7 +831,7 @@
 .deadline-status {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -883,7 +883,7 @@
   }
   
   .sub-page-header p {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .sub-page-content {
@@ -900,7 +900,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
   }
   
@@ -951,7 +951,7 @@
 
 .image-placeholder h4 {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 10px 0;
 }

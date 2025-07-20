@@ -6,7 +6,7 @@
   left: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg,#364bad,#562787);
   padding: 0;
   z-index: 9999;
   /* Remove flex centering */
@@ -76,9 +76,7 @@
   font-weight: 700;
   margin: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  border-radius: 15px;
 }
 
 .logo-text p {
@@ -125,7 +123,7 @@
 .input-icon {
   position: absolute;
   left: 15px;
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   z-index: 2;
 }
@@ -163,7 +161,7 @@
   right: 15px;
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   padding: 0;
@@ -252,7 +250,7 @@
   border: 1px solid rgba(102, 126, 234, 0.3);
   border-radius: 12px;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;

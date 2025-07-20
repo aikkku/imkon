@@ -136,7 +136,7 @@
 }
 .overview-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -147,7 +147,7 @@
     font-size: 13px;
   }
   .overview-content p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -156,7 +156,7 @@
     font-size: 15px;
   }
   .overview-content p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -204,7 +204,7 @@
 }
 .component-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -215,7 +215,7 @@
     font-size: 13px;
   }
   .component-content p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -224,7 +224,7 @@
     font-size: 15px;
   }
   .component-content p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -270,7 +270,7 @@
 
 .tip-header h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0;
 }
@@ -320,7 +320,7 @@
 
 .mistake-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -364,14 +364,14 @@
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   flex-shrink: 0;
 }
 
 .timeline-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
@@ -454,7 +454,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
   }
   
@@ -493,7 +493,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -512,6 +512,6 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
 } 

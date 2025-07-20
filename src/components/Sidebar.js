@@ -33,11 +33,11 @@ const Sidebar = ({ activeButton, onButtonClick, onLogout, isMobileOpen, onCloseM
         <div className={`sidebar-overlay${isMobileOpen ? ' open' : ''}`} onClick={onCloseMobileSidebar}></div>
       )}
       <div className={`sidebar${isMobile ? ' mobile' : ''}${isMobile && isMobileOpen ? ' open' : ''}`}>
-        {isMobile && (
-          <button className="sidebar-close-btn" onClick={onCloseMobileSidebar}>&times;</button>
-        )}
       <div className="sidebar-header">
         <div className="header-content">
+          {isMobile && (
+            <button className="sidebar-close-btn" onClick={onCloseMobileSidebar}>&times;</button>
+          )}
           <div className="company-name">
             <span className="company-text">IMKON</span>
           </div>

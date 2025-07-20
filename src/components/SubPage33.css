@@ -82,7 +82,7 @@
 
 .content-section p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   margin: 0 0 15px 0;
   font-weight: 300;
@@ -134,7 +134,7 @@
 
 .resource-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 10px 0;
 }
@@ -175,7 +175,7 @@
 
 .resource-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -211,7 +211,7 @@
 
 .project-header h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0;
 }
@@ -219,7 +219,7 @@
 .resource-priority {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -302,7 +302,7 @@
   }
   
   .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .content-section p {
@@ -345,7 +345,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -364,6 +364,6 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
 } 

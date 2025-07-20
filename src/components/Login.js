@@ -3,8 +3,6 @@ import './Login.css';
 import apiService from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
 
 const Login = ({ onLogin, onSwitchToSignup }) => {
   const [formData, setFormData] = useState({
@@ -179,7 +177,7 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
             padding: '10px 0',
             border: 'none',
             borderRadius: '8px',
-            background: 'rgba(255,255,255,0.15)',
+            background: 'rgba(255,255,255,0.55)',
             boxShadow: '0 4px 16px rgba(102,126,234,0.08)',
             color: '#222',
             fontWeight: 600,

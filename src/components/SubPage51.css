@@ -84,7 +84,7 @@
 
 .content-section p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   margin: 0 0 15px 0;
   font-weight: 300;
@@ -136,7 +136,7 @@
 
 .data-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
@@ -151,7 +151,7 @@
 
 .data-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -199,14 +199,14 @@
 
 .activity-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .activity-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 10px 0;
   line-height: 1.4;
   font-weight: 300;
@@ -220,14 +220,14 @@
 
 .activity-time {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .activity-size,
 .activity-records {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.05);
   padding: 2px 8px;
@@ -238,7 +238,7 @@
 .activity-status {
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -293,14 +293,14 @@
 
 .source-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .source-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
   line-height: 1.4;
@@ -309,7 +309,7 @@
 .source-status {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -770,7 +770,7 @@
 }
 
 .contact-icon {
-  font-size: 18px;
+  font-size: 14px;
   width: 32px;
   height: 32px;
   display: flex;
@@ -980,7 +980,7 @@
 
 .question-category h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 12px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1044,7 +1044,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
   }
   
@@ -1142,7 +1142,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .info-cards {
@@ -1182,7 +1182,7 @@
   }
   
   .content-section p {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .info-cards {

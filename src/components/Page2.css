@@ -38,10 +38,6 @@
   font-size: 28px;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .page-header p {
@@ -101,7 +97,7 @@
 
 .content-section p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  /* font-size: 14px; */
   line-height: 1.4;
   margin: 0 0 15px 0;
   font-weight: 300;
@@ -113,7 +109,7 @@
 
 .content-section ul {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   margin: 0;
   padding-left: 20px;
@@ -128,7 +124,7 @@
 }
 
 .content-section strong {
-  color: #6c2eb7;
+  color: #c494ff;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -175,7 +171,7 @@
 
 .stat-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
@@ -190,7 +186,7 @@
 
 .stat-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -238,14 +234,14 @@
 
 .activity-content h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .activity-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 0 10px 0;
   line-height: 1.4;
   font-weight: 300;
@@ -253,7 +249,7 @@
 
 .activity-time {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -300,14 +296,14 @@
 
 .action-info h4 {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .action-info p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  font-size: 14px;
   margin: 0;
   font-weight: 300;
   line-height: 1.4;
@@ -334,7 +330,7 @@
   }
   
   .page-header p {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .page-content {
@@ -351,7 +347,7 @@
   }
   
   .content-section p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
   }
   
@@ -378,7 +374,7 @@
   }
   
   .page-header p {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .page-content {
@@ -394,7 +390,7 @@
   }
   
   .content-section p {
-    font-size: 11px;
+    font-size: 14px;
   }
   
   .stat-number {
@@ -432,7 +428,7 @@
   }
   
   .content-section p {
-    font-size: 11px;
+    font-size: 14px;
   }
   
   .stat-number {
@@ -556,7 +552,7 @@
   cursor: not-allowed;
 } 
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .page-content {
     flex-direction: column;
     gap: 25px;

@@ -12,7 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg,#364bad,#562787);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -326,7 +326,7 @@ body {
   }
   
   .page-content .content-section h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .page-content .content-section p {
@@ -367,7 +367,7 @@ body {
   border: 1.5px solid #4a148c;
   border-radius: 8px;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   padding: 7px 16px;
   cursor: pointer;
@@ -391,7 +391,7 @@ body {
 .bek-part {
   color: #fff;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
