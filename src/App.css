@@ -148,7 +148,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   position: relative;
 }
