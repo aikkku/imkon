@@ -18,6 +18,14 @@ const SubPage32 = ({ activeButton }) => {
           <h3>Major Scholarship Programs</h3>
           <div className="info-cards">
             <div className="info-card">
+              <div className="info-icon">🇺🇿</div>
+              <div className="info-content">
+                <h4>El-yurt umidi</h4>
+                <p>Covers full costs for bachelor’s, master’s, PhD, or research abroad. Open to Uzbek citizens committed to contributing to national development.</p>
+              </div>
+            </div>
+
+            <div className="info-card">
               <div className="info-icon">🇺🇸</div>
               <div className="info-content">
                 <h4>Fulbright Foreign Student Program</h4>
