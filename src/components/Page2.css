@@ -562,3 +562,27 @@
     width: 100%;
   }
 } 
+
+/* Message bar for AI tools */
+.ai-tools-message {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 6px 22px;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 2px 12px rgba(80, 80, 120, 0.08);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s;
+}
+
+@media (max-width: 768px) {
+  .ai-tools-message {
+    font-size: 14px;
+    padding: 5px 14px;
+  }
+} 

@@ -114,6 +114,9 @@ function App() {
 
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
+    if (buttonNumber === 1) {
+      setActiveAgent(1);
+    }
   };
 
   const handleAgentSelect = (agentNumber) => {
@@ -177,6 +180,11 @@ function App() {
     }
   };
 
+  const handleTryUniversityExplorer = () => {
+    setActiveButton(1);
+    setActiveAgent(2);
+  };
+
   const renderRightContent = () => {
     switch (activeButton) {
       case 1:
@@ -217,7 +225,7 @@ function App() {
           </div>
         );
       case 2:
-        return <Page2 activeButton={activeButton} onButtonClick={handleButtonClick} />;
+        return <Page2 activeButton={activeButton} onButtonClick={handleButtonClick} onTryUniversityExplorer={handleTryUniversityExplorer} />;
       case 4:
         return <Page4 activeButton={activeButton} />;
       case 31:

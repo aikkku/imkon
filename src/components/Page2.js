@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Page2.css';
 import ApiService from '../services/api';
 
-const Page2 = ({ activeButton, onButtonClick }) => {
+const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
   const [profile, setProfile] = useState({
     name: '',
     telephone: '',
@@ -66,7 +66,36 @@ const Page2 = ({ activeButton, onButtonClick }) => {
           <div className="content-section home-info-section">
             <h3>🚀 Your AI-Powered Gateway to Global Education</h3>
             
-            <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+            
+              <div
+                onClick={() => {
+                  const target = document.getElementById('profile-card');
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="ai-tools-message"
+                style={{
+                  background: 'rgba(255,255,255,0.28)',
+                  color: '#fff',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                <span role="img" aria-label="info" style={{ marginRight: 8 }}>
+                  ℹ️
+                </span>
+                Complete your student profile to unlock the full power of our AI tools!
+              </div>
+
+            </div>
+
+            <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+              <div className="ai-tools-message">More AI tools coming soon!</div>
+            </div>
+
+            <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px', display: 'flex', justifyContent: 'center', gap: '16px' }}>
               <button 
                 style={{
                   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -93,7 +122,35 @@ const Page2 = ({ activeButton, onButtonClick }) => {
                   e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
                 }}
               >
-                🤖 Try AIbek Now
+                🤖 Try AIbek
+              </button>
+              <button
+                style={{
+                  background: 'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)',
+                  border: 'none',
+                  borderRadius: '15px',
+                  padding: '18px 40px',
+                  fontSize: '18px',
+                  fontWeight: '600',
+                  color: 'white',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 25px rgba(67, 206, 162, 0.3)',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px'
+                }}
+                onClick={onTryUniversityExplorer}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-3px)';
+                  e.target.style.boxShadow = '0 12px 35px rgba(67, 206, 162, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(67, 206, 162, 0.3)';
+                }}
+              >
+                🏫 Try University Explorer
               </button>
             </div>
             
@@ -117,7 +174,7 @@ const Page2 = ({ activeButton, onButtonClick }) => {
             5. Connect with our community and share your success story.<br/>
             </p>
           </div>
-          <div className="profile-card glass-card">
+          <div className="profile-card glass-card" id='profile-card'>
             <h3>Student Profile</h3>
             {message && <div className="profile-message">{message}</div>}
             <form className="profile-form" onSubmit={handleSave} autoComplete="off">
@@ -167,7 +224,18 @@ const Page2 = ({ activeButton, onButtonClick }) => {
         <div className="content-section home-info-section">
           <h3>🚀 Your AI-Powered Gateway to Global Education</h3>
           
-          <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+            <div className="ai-tools-message" style={{background: 'rgba(255,255,255,0.28)', color: '#fff', fontWeight: 700}}>
+              <span role="img" aria-label="info" style={{marginRight: 8}}>ℹ️</span>
+              Complete your student profile to unlock the full power of our AI tools!
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+            <div className="ai-tools-message">More AI tools coming soon!</div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px', display: 'flex', justifyContent: 'center', gap: '16px' }}>
             <button 
               style={{
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -194,7 +262,35 @@ const Page2 = ({ activeButton, onButtonClick }) => {
                 e.target.style.boxShadow = '0 8px 25px rgba(164, 164, 164, 0.3)';
               }}
             >
-              🤖 Try AIbek Now
+              🤖 Try AIbek
+            </button>
+            <button
+              style={{
+                background: 'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)',
+                border: 'none',
+                borderRadius: '15px',
+                padding: '18px 40px',
+                fontSize: '18px',
+                fontWeight: '600',
+                color: 'white',
+                cursor: 'pointer',
+                boxShadow: '0 8px 25px rgba(67, 206, 162, 0.3)',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}
+              onClick={onTryUniversityExplorer}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 12px 35px rgba(67, 206, 162, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 25px rgba(67, 206, 162, 0.3)';
+              }}
+            >
+              🏫 Try University Explorer
             </button>
           </div>
           
