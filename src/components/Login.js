@@ -72,7 +72,7 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'https://backend-for-lazy-people-2dbb64065880.herokuapp.com/auth/google/login';
+    window.location.href = 'https://unresponding-nettie-nonadaptive.ngrok-free.dev/auth/google/login';
   };
 
   return (
@@ -175,11 +175,11 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
             marginTop: '18px',
             width: '100%',
             padding: '10px 0',
-            border: 'none',
+            border: '1px solid rgba(124, 58, 237, 0.14)',
             borderRadius: '8px',
-            background: 'rgba(255,255,255,0.55)',
-            boxShadow: '0 4px 16px rgba(102,126,234,0.08)',
-            color: '#222',
+            background: '#ffffff',
+            boxShadow: '0 4px 16px rgba(124, 58, 237, 0.1)',
+            color: '#1e1b4b',
             fontWeight: 600,
             fontSize: '16px',
             cursor: 'pointer',

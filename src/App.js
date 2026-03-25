@@ -27,7 +27,7 @@ function App() {
   const [activeButton, setActiveButton] = useState(2);
   const [activeAgent, setActiveAgent] = useState(1);
   const [showAgentSelector, setShowAgentSelector] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [showSignup, setShowSignup] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

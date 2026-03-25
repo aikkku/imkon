@@ -4,11 +4,11 @@
   min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   backdrop-filter: blur(20px);
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 8px 32px rgba(91, 33, 182, 0.08);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -28,20 +28,20 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.12), transparent);
 }
 
 .chatbot-header {
   padding: 20px 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .chatbot-header h2 {
-  color: white;
+  color: #1e1b4b;
   font-size: 24px;
   font-weight: 600;
   margin: 0;
@@ -78,11 +78,11 @@
 .toggle-agent-button {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.1);
   border-radius: 10px;
-  color: white;
+  color: #7c3aed;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -99,7 +99,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
@@ -108,16 +108,16 @@
 }
 
 .toggle-agent-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.35);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(91, 33, 182, 0.1);
 }
 
 .toggle-agent-button.active {
-  background: rgba(102, 126, 234, 0.3);
-  border-color: rgba(102, 126, 234, 0.6);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  background: rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.2);
   transform: translateY(-2px);
 }
 
@@ -176,25 +176,25 @@
 }
 
 .user-message .message-content {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #ffffff;
   border-bottom-right-radius: 5px;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
 }
 
 .bot-message .message-content {
-  background: rgba(255, 255, 255, 0.1);
+  background: #faf5ff;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  color: #1e1b4b;
   border-bottom-left-radius: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(91, 33, 182, 0.06);
 }
 
 .chat-input {
   padding: 25px 30px;
-  background: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border-top: 1px solid rgba(124, 58, 237, 0.1);
   display: flex;
   gap: 15px;
   align-items: center;
@@ -203,33 +203,33 @@
 .message-input {
   flex: 1;
   height: 50px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #faf5ff;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.14);
   border-radius: 25px;
   padding: 0 20px;
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   outline: none;
   transition: all 0.3s ease;
 }
 
 .message-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: #64748b;
 }
 
 .message-input:focus {
-  border-color: rgba(102, 126, 234, 0.6);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.07);
 }
 
 .send-button {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   border: none;
   border-radius: 15px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -237,12 +237,12 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
 }
 
 .send-button:hover:not(.disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.28);
 }
 
 .send-button:active:not(.disabled) {
@@ -250,7 +250,7 @@
 }
 
 .send-button.disabled {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -265,15 +265,15 @@
 
 .ai-box {
   display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #ffffff;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 24px;
   font-weight: 600;
   margin-right: 2px;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
+  text-shadow: 0 1px 2px rgba(91, 33, 182, 0.1);
 }
 
 /* Responsive design */
@@ -307,7 +307,7 @@
     flex-shrink: 0;
     padding: 16px 12px;
     font-size: 1rem;
-    background: rgba(255,255,255,0.08);
+    background: #faf5ff;
     backdrop-filter: blur(18px);
     border-radius: 0;
     border: none;
@@ -341,7 +341,7 @@
     width: 100vw;
     box-sizing: border-box;
     padding: 10px 8px;
-    background: rgba(255,255,255,0.08);
+    background: #faf5ff;
     backdrop-filter: blur(18px);
     border: none;
     border-radius: 0;
@@ -395,7 +395,7 @@
 .typing-indicator span {
   width: 8px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(124, 58, 237, 0.45);
   border-radius: 50%;
   animation: typing 1.4s infinite ease-in-out;
 }
@@ -426,5 +426,5 @@
 }
 
 .message-input:disabled::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: #94a3b8;
 } 

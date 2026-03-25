@@ -6,7 +6,7 @@
   left: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  background: linear-gradient(135deg,#364bad,#562787);
+  background: linear-gradient(165deg, #faf5ff 0%, #ffffff 45%, #ede9fe 100%);
   padding: 0;
   z-index: 9999;
   /* Remove flex centering */
@@ -19,18 +19,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ede9fe"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
   pointer-events: none;
 }
 
 .login-card {
   width: 100%;
   max-width: 420px;
-  background: rgba(255, 255, 255, 0.13);
+  background: #ffffff;
   backdrop-filter: blur(24px);
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 8px 32px rgba(91, 33, 182, 0.09);
   padding: 40px 40px 60px 40px;
   position: relative;
   z-index: 1;
@@ -48,7 +48,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.12), transparent);
   border-radius: 25px 25px 0 0;
 }
 
@@ -67,20 +67,21 @@
 
 .logo-icon {
   font-size: 40px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 4px 8px rgba(91, 33, 182, 0.1));
 }
 
 .logo-text h1 {
-  color: white;
+  color: #ffffff;
   font-size: 28px;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   border-radius: 15px;
+  padding: 4px 14px;
 }
 
 .logo-text p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -89,7 +90,7 @@
 }
 
 .login-subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: #334155;
   font-size: 14px;
   margin: 0;
   line-height: 1.5;
@@ -108,7 +109,7 @@
 }
 
 .form-group label {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin-left: 4px;
@@ -124,17 +125,17 @@
   position: absolute;
   left: 15px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   z-index: 2;
 }
 
 .form-input {
   width: 100%;
   padding: 15px 15px 15px 45px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -142,14 +143,14 @@
 }
 
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: #94a3b8;
 }
 
 .form-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.38);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.07);
 }
 
 .form-input:focus + .input-icon {
@@ -162,14 +163,14 @@
   background: none;
   border: none;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   cursor: pointer;
   padding: 0;
   transition: color 0.3s ease;
 }
 
 .password-toggle:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: #334155;
 }
 
 .form-options {
@@ -195,15 +196,15 @@
 .checkbox-custom {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(124, 58, 237, 0.25);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f3ff;
   position: relative;
   transition: all 0.3s ease;
 }
 
 .checkbox-input:checked + .checkbox-custom {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   border-color: rgba(102, 126, 234, 0.8);
 }
 
@@ -213,13 +214,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #ffffff;
   font-size: 12px;
   font-weight: bold;
 }
 
 .checkbox-label {
-  color: rgba(255, 255, 255, 0.9);
+  color: #334155;
   font-size: 13px;
   font-weight: 500;
 }
@@ -246,10 +247,10 @@
 .login-button {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
-  border: 1px solid rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  border: 1px solid rgba(124, 58, 237, 0.2);
   border-radius: 12px;
-  color: white;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -262,10 +263,10 @@
 }
 
 .login-button:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 1) 0%, rgba(118, 75, 162, 1) 100%);
-  border-color: rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  border-color: rgba(124, 58, 237, 0.38);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
 }
 
 .login-button:disabled {
@@ -275,14 +276,14 @@
 }
 
 .login-button.loading {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.85) 0%, rgba(91, 33, 182, 0.9) 100%);
 }
 
 .loading-spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top: 2px solid white;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+  border-top: 2px solid #7c3aed;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -296,11 +297,11 @@
   text-align: center;
   margin-top: 30px;
   padding-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(124, 58, 237, 0.1);
 }
 
 .signup-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: #64748b;
   font-size: 14px;
   margin: 0;
 }
@@ -358,7 +359,7 @@
 .form-input:focus,
 .login-button:focus,
 .password-toggle:focus {
-  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline: 2px solid rgba(124, 58, 237, 0.38);
   outline-offset: 2px;
 }
 

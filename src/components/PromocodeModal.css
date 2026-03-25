@@ -11,7 +11,7 @@
   justify-content: center;
   pointer-events: auto;
   backdrop-filter: blur(8px);
-  background: rgba(40, 30, 70, 0.18);
+  background: rgba(124, 58, 237, 0.12);
   animation: fadeInBg 0.4s;
 }
 
@@ -21,11 +21,11 @@
 }
 
 .promocode-modal {
-  background: rgba(255, 255, 255, 0.13);
+  background: #ffffff;
   backdrop-filter: blur(22px);
   border-radius: 25px;
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.18);
+  border: 1.5px solid rgba(124, 58, 237, 0.16);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
   padding: 44px 36px 32px 36px;
   min-width: 340px;
   max-width: 95vw;
@@ -44,7 +44,7 @@
   margin-bottom: 1.2rem;
   font-size: 1.7rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -53,10 +53,10 @@
 .promocode-input {
   width: 100%;
   padding: 1rem 1.2rem;
-  background: rgba(255,255,255,0.08);
-  border: 1.5px solid rgba(255,255,255,0.18);
+  background: #faf5ff;
+  border: 1.5px solid rgba(124, 58, 237, 0.14);
   border-radius: 12px;
-  color: white;
+  color: #1e1b4b;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 1.1rem;
@@ -66,22 +66,22 @@
 }
 
 .promocode-input:focus {
-  border: 1.5px solid #667eea;
-  background: rgba(255,255,255,0.13);
+  border: 1.5px solid #7c3aed;
+  background: #ffffff;
 }
 
 .promocode-submit {
   width: 100%;
   padding: 1rem 1.2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.13);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.09);
   margin-bottom: 0.5rem;
 }
 
@@ -111,11 +111,11 @@
 
 .promocode-info {
   margin-top: 1.2rem;
-  color: rgba(255,255,255,0.85);
+  color: #475569;
   font-size: 1.01rem;
   font-weight: 400;
   letter-spacing: 0.01em;
-  background: rgba(102, 126, 234, 0.08);
+  background: rgba(124, 58, 237, 0.06);
   border-radius: 8px;
   padding: 10px 0 7px 0;
 }

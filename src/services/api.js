@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://backend-for-lazy-people-2dbb64065880.herokuapp.com';
+const API_BASE_URL = 'https://unresponding-nettie-nonadaptive.ngrok-free.dev';
 
 class ApiService {
   constructor() {

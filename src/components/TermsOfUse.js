@@ -2,8 +2,8 @@ import React from 'react';
 
 const TermsOfUse = () => {
   return (
-    <div style={{ maxWidth: 700, margin: '40px auto', background: 'rgba(255,255,255,0.95)', borderRadius: 16, boxShadow: '0 4px 24px rgba(102,126,234,0.08)', padding: '36px 32px', fontFamily: 'inherit' }}>
-      <h1 style={{ fontSize: 32, color: '#667eea', marginBottom: 16 }}>Terms of Use</h1>
+    <div style={{ maxWidth: 700, margin: '40px auto', background: '#ffffff', borderRadius: 16, border: '1px solid rgba(124, 58, 237, 0.12)', boxShadow: '0 4px 24px rgba(91, 33, 182, 0.08)', padding: '36px 32px', fontFamily: 'inherit' }}>
+      <h1 style={{ fontSize: 32, color: '#5b21b6', marginBottom: 16 }}>Terms of Use</h1>
       <p style={{ color: '#333', fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
         Welcome to IMKON! Please read these terms and conditions carefully before using our website and services.
       </p>
@@ -20,15 +20,15 @@ const TermsOfUse = () => {
       <button
         onClick={() => window.history.back()}
         style={{
-          background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
-          color: 'white',
+          background: 'linear-gradient(90deg, #7c3aed 0%, #5b21b6 100%)',
+          color: '#ffffff',
           border: 'none',
           borderRadius: 8,
           padding: '10px 28px',
           fontSize: 16,
           fontWeight: 600,
           cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(102,126,234,0.10)',
+          boxShadow: '0 2px 8px rgba(124, 58, 237, 0.2)',
         }}
       >
         Back

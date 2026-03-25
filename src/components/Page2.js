@@ -59,7 +59,7 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
     return (
       <>
         <div className="page-header">
-          <h2>Welcome to <span style={{background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", border: 'none', borderRadius: '15px', padding: '0px 10px'}}> IMKON </span></h2>
+          <h2>Welcome to <span style={{background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)", color: '#ffffff', border: 'none', borderRadius: '15px', padding: '4px 12px'}}> IMKON </span></h2>
           <p>Your AI-powered study abroad companion</p>
         </div>
         <div className="page-content">
@@ -77,10 +77,11 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
                 }}
                 className="ai-tools-message"
                 style={{
-                  background: 'rgba(255,255,255,0.28)',
-                  color: '#fff',
+                  background: '#faf5ff',
+                  color: '#1e1b4b',
                   fontWeight: 700,
                   cursor: 'pointer',
+                  border: '1px solid rgba(124, 58, 237, 0.14)',
                 }}
               >
                 <span role="img" aria-label="info" style={{ marginRight: 8 }}>
@@ -98,15 +99,15 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
             <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px', display: 'flex', justifyContent: 'center', gap: '16px' }}>
               <button 
                 style={{
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  background: 'linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)',
                   border: 'none',
                   borderRadius: '15px',
                   padding: '18px 40px',
                   fontSize: '18px',
                   fontWeight: '600',
-                  color: 'white',
+                  color: '#ffffff',
                   cursor: 'pointer',
-                  boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
+                  boxShadow: '0 8px 25px rgba(124, 58, 237, 0.25)',
                   transition: 'all 0.3s ease',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -115,26 +116,26 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
                 onClick={() => onButtonClick && onButtonClick(1)}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'translateY(-3px)';
-                  e.target.style.boxShadow = '0 12px 35px rgba(102, 126, 234, 0.4)';
+                  e.target.style.boxShadow = '0 12px 35px rgba(124, 58, 237, 0.35)';
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(124, 58, 237, 0.25)';
                 }}
               >
                 🤖 Try AIbek
               </button>
               <button
                 style={{
-                  background: 'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)',
+                  background: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)',
                   border: 'none',
                   borderRadius: '15px',
                   padding: '18px 40px',
                   fontSize: '18px',
                   fontWeight: '600',
-                  color: 'white',
+                  color: '#ffffff',
                   cursor: 'pointer',
-                  boxShadow: '0 8px 25px rgba(67, 206, 162, 0.3)',
+                  boxShadow: '0 8px 25px rgba(124, 58, 237, 0.22)',
                   transition: 'all 0.3s ease',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -143,36 +144,16 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
                 onClick={onTryUniversityExplorer}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'translateY(-3px)';
-                  e.target.style.boxShadow = '0 12px 35px rgba(67, 206, 162, 0.4)';
+                  e.target.style.boxShadow = '0 12px 35px rgba(124, 58, 237, 0.32)';
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = '0 8px 25px rgba(67, 206, 162, 0.3)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(124, 58, 237, 0.22)';
                 }}
               >
                 🏫 Try University Explorer
               </button>
             </div>
-            
-            <p><strong>IMKON</strong> revolutionizes your international education journey with cutting-edge AI technology. Our intelligent platform combines the power of artificial intelligence with comprehensive resources to transform how students from Uzbekistan and beyond discover, apply to, and succeed in global education opportunities.</p>
-            <ul>
-              <li><strong>🤖 AI-Powered Personalization:</strong> Our advanced AI analyzes your profile and preferences to deliver hyper-personalized university recommendations, scholarship matches, and application strategies.</li>
-              <li><strong>💬 Intelligent Chat Assistant:</strong> Meet <strong>AIbek</strong>, your 24/7 AI companion who answers questions, provides instant guidance, and helps you navigate complex application processes.</li>
-              <li><strong>🎯 Smart Program Matching:</strong> AI algorithms match you with the perfect UWC, FLEX, and university programs based on your academic profile and career goals.</li>
-              <li><strong>✍️ AI-Enhanced Essay Support:</strong> Get intelligent feedback on your personal statements and essays with our AI-powered writing assistant.</li>
-              <li><strong>💰 Intelligent Scholarship Discovery:</strong> Our AI scans thousands of opportunities to find scholarships that match your unique profile and background.</li>
-            </ul>
-            <p><strong>🎓 Who is IMKON for?</strong><br/>
-            - Ambitious high school students ready to conquer global education<br/>
-            - Forward-thinking parents and counselors embracing AI-powered guidance<br/>
-            - Anyone seeking a smarter, more efficient path to international education</p>
-            <p><strong>🚀 How to Harness IMKON's AI Power:</strong><br/>
-            1. Create your smart profile and let our AI understand your goals.<br/>
-            2. Chat with <strong>AIbek</strong> for instant, intelligent guidance on any topic.<br/>
-            3. Explore AI-curated university and program recommendations.<br/>
-            4. Use our AI tools to perfect your applications and essays.<br/>
-            5. Connect with our community and share your success story.<br/>
-            </p>
           </div>
           <div className="profile-card glass-card" id='profile-card'>
             <h3>Student Profile</h3>
@@ -217,7 +198,7 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
   return (
     <div className="page-2">
       <div className="page-header">
-        <h2>Welcome to <span style={{background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", border: 'none', borderRadius: '15px', padding: '0px 10px'}}> IMKON </span></h2>
+        <h2>Welcome to <span style={{background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)", color: '#ffffff', border: 'none', borderRadius: '15px', padding: '4px 12px'}}> IMKON </span></h2>
         <p>Your AI-powered study abroad companion</p>
       </div>
       <div className="page-content">
@@ -225,7 +206,7 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
           <h3>🚀 Your AI-Powered Gateway to Global Education</h3>
           
           <div style={{ textAlign: 'center', marginBottom: '8px' }}>
-            <div className="ai-tools-message" style={{background: 'rgba(255,255,255,0.28)', color: '#fff', fontWeight: 700}}>
+            <div className="ai-tools-message" style={{background: '#faf5ff', color: '#1e1b4b', fontWeight: 700, border: '1px solid rgba(124, 58, 237, 0.14)'}}>
               <span role="img" aria-label="info" style={{marginRight: 8}}>ℹ️</span>
               Complete your student profile to unlock the full power of our AI tools!
             </div>
@@ -238,15 +219,15 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
           <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '30px', display: 'flex', justifyContent: 'center', gap: '16px' }}>
             <button 
               style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)',
                 border: 'none',
                 borderRadius: '15px',
                 padding: '18px 40px',
                 fontSize: '18px',
                 fontWeight: '600',
-                color: 'white',
+                color: '#ffffff',
                 cursor: 'pointer',
-                boxShadow: '0 8px 25px rgba(164, 164, 164, 0.3)',
+                boxShadow: '0 8px 25px rgba(124, 58, 237, 0.25)',
                 transition: 'all 0.3s ease',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -255,26 +236,26 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
               onClick={() => onButtonClick && onButtonClick(1)}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-3px)';
-                e.target.style.boxShadow = '0 12px 35px rgba(255, 255, 255, 0.4)';
+                e.target.style.boxShadow = '0 12px 35px rgba(124, 58, 237, 0.35)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 8px 25px rgba(164, 164, 164, 0.3)';
+                e.target.style.boxShadow = '0 8px 25px rgba(124, 58, 237, 0.25)';
               }}
             >
               🤖 Try AIbek
             </button>
             <button
               style={{
-                background: 'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)',
+                background: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)',
                 border: 'none',
                 borderRadius: '15px',
                 padding: '18px 40px',
                 fontSize: '18px',
                 fontWeight: '600',
-                color: 'white',
+                color: '#ffffff',
                 cursor: 'pointer',
-                boxShadow: '0 8px 25px rgba(67, 206, 162, 0.3)',
+                boxShadow: '0 8px 25px rgba(124, 58, 237, 0.22)',
                 transition: 'all 0.3s ease',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -283,36 +264,16 @@ const Page2 = ({ activeButton, onButtonClick, onTryUniversityExplorer }) => {
               onClick={onTryUniversityExplorer}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-3px)';
-                e.target.style.boxShadow = '0 12px 35px rgba(67, 206, 162, 0.4)';
+                e.target.style.boxShadow = '0 12px 35px rgba(124, 58, 237, 0.32)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 8px 25px rgba(67, 206, 162, 0.3)';
+                e.target.style.boxShadow = '0 8px 25px rgba(124, 58, 237, 0.22)';
               }}
             >
               🏫 Try University Explorer
             </button>
           </div>
-          
-          <p><strong>IMKON</strong> revolutionizes your international education journey with cutting-edge AI technology. Our intelligent platform combines the power of artificial intelligence with comprehensive resources to transform how students from Uzbekistan and beyond discover, apply to, and succeed in global education opportunities.</p>
-          <ul>
-            <li><strong>🤖 AI-Powered Personalization:</strong> Our advanced AI analyzes your profile and preferences to deliver hyper-personalized university recommendations, scholarship matches, and application strategies.</li>
-            <li><strong>💬 Intelligent Chat Assistant:</strong> Meet <strong>AIbek</strong>, your 24/7 AI companion who answers questions, provides instant guidance, and helps you navigate complex application processes.</li>
-            <li><strong>🎯 Smart Program Matching:</strong> AI algorithms match you with the perfect UWC, FLEX, and university programs based on your academic profile and career goals.</li>
-            <li><strong>✍️ AI-Enhanced Essay Support:</strong> Get intelligent feedback on your personal statements and essays with our AI-powered writing assistant.</li>
-            <li><strong>💰 Intelligent Scholarship Discovery:</strong> Our AI scans thousands of opportunities to find scholarships that match your unique profile and background.</li>
-          </ul>
-          <p><strong>🎓 Who is IMKON for?</strong><br/>
-          - Ambitious high school students ready to conquer global education<br/>
-          - Forward-thinking parents and counselors embracing AI-powered guidance<br/>
-          - Anyone seeking a smarter, more efficient path to international education</p>
-          <p><strong>🚀 How to Harness IMKON's AI Power:</strong><br/>
-          1. Create your smart profile and let our AI understand your goals.<br/>
-          2. Chat with <strong>AIbek</strong> for instant, intelligent guidance on any topic.<br/>
-          3. Explore AI-curated university and program recommendations.<br/>
-          4. Use our AI tools to perfect your applications and essays.<br/>
-          5. Connect with our community and share your success story.<br/>
-          </p>
         </div>
         <div className="profile-card glass-card">
           <h3>Student Profile</h3>

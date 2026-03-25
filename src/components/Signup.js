@@ -106,7 +106,7 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
   };
 
   const handleGoogleSignup = () => {
-    window.location.href = 'https://backend-for-lazy-people-2dbb64065880.herokuapp.com/auth/google/login';
+    window.location.href = 'https://unresponding-nettie-nonadaptive.ngrok-free.dev/auth/google/login';
   };
 
   return (
@@ -223,7 +223,7 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
         </form>
 
         <div className="terms-link-container" style={{ marginTop: '16px', textAlign: 'center' }}>
-          <a href="/terms" style={{ color: '#667eea', textDecoration: 'underline', fontSize: '14px', opacity: 0.85 }}>
+          <a href="/terms" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '14px', opacity: 0.95 }}>
             By signing up, you agree to our Terms of Use
           </a>
         </div>
@@ -244,11 +244,11 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
             marginTop: '18px',
             width: '100%',
             padding: '10px 0',
-            border: 'none',
+            border: '1px solid rgba(124, 58, 237, 0.14)',
             borderRadius: '8px',
-            background: 'rgba(255,255,255,0.55)',
-            boxShadow: '0 4px 16px rgba(102,126,234,0.08)',
-            color: '#222',
+            background: '#ffffff',
+            boxShadow: '0 4px 16px rgba(124, 58, 237, 0.1)',
+            color: '#1e1b4b',
             fontWeight: 600,
             fontSize: '16px',
             cursor: 'pointer',

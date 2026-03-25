@@ -4,10 +4,10 @@
   min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
-  background: rgba(255,255,255,0.1);
+  background: #ffffff;
   border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 8px 32px rgba(91, 33, 182, 0.07);
   position: relative;
   overflow: hidden;
   max-width: 1200px;
@@ -21,27 +21,27 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.12), transparent);
 }
 
 .sub-page-header {
   padding: 25px 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .sub-page-header h2 {
-  color: white;
+  color: #1e1b4b;
   font-size: 24px;
   font-weight: 600;
   margin: 0;
 }
 
 .sub-page-header p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 12px;
   margin: 0;
   font-weight: 300;
@@ -64,9 +64,9 @@
 }
 
 .content-section {
-  background: rgba(255,255,255,0.08);
+  background: #faf5ff;
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.13);
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 18px;
   padding: 35px;
   transition: all 0.3s ease;
@@ -76,23 +76,23 @@
 }
 
 .content-section:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(91, 33, 182, 0.06);
 }
 
 .content-section h3 {
-  color: white;
+  color: #1e1b4b;
   font-size: 28px;
   font-weight: 700;
   margin: 0 0 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
   padding-bottom: 10px;
 }
 
 .content-section p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   line-height: 1.4;
   margin: 0 0 15px 0;
@@ -115,17 +115,17 @@
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .component-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(91, 33, 182, 0.06);
 }
 
 .component-icon {
@@ -135,7 +135,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(124, 58, 237, 0.14);
   border-radius: 12px;
 }
 
@@ -144,14 +144,14 @@
 }
 
 .component-info h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .component-info p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
@@ -215,17 +215,17 @@
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .info-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(91, 33, 182, 0.06);
 }
 
 .info-icon {
@@ -235,20 +235,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(124, 58, 237, 0.14);
   border-radius: 10px;
 }
 
 .info-content h4,
 .timeline-content h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 15px !important;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 .info-content p,
 .timeline-content p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 11px !important;
   margin: 0;
   font-weight: 300;
@@ -290,15 +290,15 @@
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f3ff;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.12);
   transition: all 0.3s ease;
 }
 
 .timeline-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
 }
 
@@ -309,20 +309,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(124, 58, 237, 0.14);
   border-radius: 10px;
   flex-shrink: 0;
 }
 
 .timeline-content h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .timeline-content p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   margin: 0;
   font-weight: 300;
@@ -332,8 +332,8 @@
 /* Deadline Table */
 .deadline-table {
   margin-top: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -341,14 +341,14 @@
 .deadline-table-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
 }
 
 .deadline-type-column,
 .deadline-timeline-column {
   padding: 15px 20px;
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -358,12 +358,12 @@
 .deadline-table-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid #f5f3ff;
   transition: all 0.3s ease;
 }
 
 .deadline-table-row:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f3ff;
 }
 
 .deadline-table-row:last-child {
@@ -379,20 +379,20 @@
 }
 
 .deadline-type-cell h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0;
 }
 
 .deadline-timeline-cell span {
-  color: rgba(255, 255, 255, 0.9);
+  color: #334155;
   font-size: 14px;
   font-weight: 500;
 }
 
 .timeline-note {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: #64748b !important;
   font-size: 12px !important;
   font-weight: 400 !important;
   font-style: italic;
@@ -411,15 +411,15 @@
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .step-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
 }
 
@@ -429,8 +429,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #1e1b4b;
   font-weight: 600;
   font-size: 14px;
   border-radius: 50%;
@@ -442,14 +442,14 @@
 }
 
 .step-content h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .step-content p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
@@ -507,15 +507,15 @@
   align-items: flex-start;
   gap: 15px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .faq-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
 }
 
@@ -532,14 +532,14 @@
 }
 
 .faq-content h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .faq-content p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   margin: 0;
   font-weight: 300;
@@ -548,8 +548,8 @@
 
 /* Tips Section - Grid Style */
 .tips-section {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 15px;
   padding: 25px;
   width: 100%;
@@ -581,8 +581,8 @@
   align-items: flex-start;
   gap: 10px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f5f3ff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 12px;
   transition: all 0.3s ease;
   overflow-wrap: break-word;
@@ -615,7 +615,7 @@
 }
 
 .tip-header h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 15px !important;
   font-weight: 600;
   margin: 0;
@@ -624,7 +624,7 @@
 }
 
 .tip-card p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 11px !important;
   margin: 0;
   font-weight: 300;
@@ -662,15 +662,15 @@
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f3ff;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.12);
   transition: all 0.3s ease;
 }
 
 .university-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
 }
 
@@ -681,7 +681,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(124, 58, 237, 0.14);
   border-radius: 10px;
   flex-shrink: 0;
 }
@@ -691,14 +691,14 @@
 }
 
 .university-info h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .university-info p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   margin: 0 0 8px 0;
   font-weight: 300;
@@ -749,13 +749,13 @@
 }
 
 .university-fee {
-  color: rgba(255, 255, 255, 0.6);
+  color: #64748b;
   font-size: 12px;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f3ff;
   padding: 2px 8px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.12);
 }
 
 .deadlines-list {
@@ -770,15 +770,15 @@
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f3ff;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.12);
   transition: all 0.3s ease;
 }
 
 .deadline-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #faf5ff;
+  border-color: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
 }
 
@@ -789,20 +789,20 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(124, 58, 237, 0.14);
   border-radius: 10px;
   flex-shrink: 0;
 }
 
 .deadline-day {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
 }
 
 .deadline-month {
-  color: rgba(255, 255, 255, 0.8);
+  color: #64748b;
   font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
@@ -814,14 +814,14 @@
 }
 
 .deadline-info h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
 
 .deadline-info p {
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   font-size: 14px;
   margin: 0;
   font-weight: 300;
@@ -927,8 +927,8 @@
 }
 
 .image-placeholder {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  border: 2px dashed rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.07) 0%, rgba(91, 33, 182, 0.07) 100%);
+  border: 2px dashed rgba(124, 58, 237, 0.2);
   border-radius: 15px;
   padding: 40px;
   text-align: center;
@@ -938,10 +938,10 @@
 }
 
 .image-placeholder:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-  border-color: rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.1) 100%);
+  border-color: rgba(124, 58, 237, 0.38);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.14);
 }
 
 .image-icon {
@@ -950,28 +950,28 @@
 }
 
 .image-placeholder h4 {
-  color: white;
+  color: #1e1b4b;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 10px 0;
 }
 
 .image-placeholder p {
-  color: rgba(255, 255, 255, 0.8);
+  color: #64748b;
   font-size: 14px;
   margin: 0 0 15px 0;
 }
 
 .image-overlay {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.1);
 }
 
 .image-caption {
-  color: rgba(255, 255, 255, 0.9);
+  color: #334155;
   font-size: 12px;
   font-weight: 500;
   font-style: italic;
